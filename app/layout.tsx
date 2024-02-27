@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import Providers from "./providers";
 import "./globals.css";
+import { NavbarSection } from "./components/Navbar";
 
 const vazir = Vazirmatn({ subsets: ["latin", "arabic", "latin-ext"] });
 
@@ -18,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={vazir.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <NavbarSection />
+          {children}
+        </Providers>
       </body>
     </html>
   );
