@@ -15,9 +15,9 @@ export function ThemeSwitcher() {
 
   return (
     <div className="flex space-x-4">
-      <div className="border p-2">تم فعلی: {theme}</div>
-      <button onClick={() => setTheme("light")}>تم روشن</button>
-      <button onClick={() => setTheme("dark")}>تم تاریک</button>
+      <button onClick={() => setTheme(theme == "dark" ? "light" : "dark")}>
+        {theme == "dark" ? "تم روشن" : "تم تاریک"}
+      </button>
     </div>
   );
 }

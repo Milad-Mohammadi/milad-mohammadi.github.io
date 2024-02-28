@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { getDictionaryCommon } from "../[lang]/dictionaries_common";
 import { VimiladLogo } from "./icons/VimiladLogo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 interface routeProps {
   label: string;
@@ -68,6 +69,7 @@ export const NavbarSection = async () => {
 
       <NavbarContent justify="end">
         <ThemeSwitcher />
+        <LanguageSwitcher />
       </NavbarContent>
     </Navbar>
   );
