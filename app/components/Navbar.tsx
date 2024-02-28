@@ -5,12 +5,16 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { getDictionaryCommon } from "../[lang]/dictionaries_common";
 import { VimiladLogo } from "./icons/VimiladLogo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import React from "react";
 
 interface routeProps {
   label: string;
@@ -18,6 +22,7 @@ interface routeProps {
 }
 
 export const NavbarSection = async () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const pathnameSegments = pathname.split("/");
   const language = pathnameSegments[1];
@@ -48,11 +53,17 @@ export const NavbarSection = async () => {
 
   return (
     <Navbar dir={direction} isBlurred>
-      <NavbarBrand>
-        <Link href={`/${language}`}>
-          <VimiladLogo />
-        </Link>
-      </NavbarBrand>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="md:hidden"
+        />
+        <NavbarBrand>
+          <Link href={`/${language}`}>
+            <VimiladLogo />
+          </Link>
+        </NavbarBrand>
+      </NavbarContent>
 
       <NavbarContent className="hidden md:flex gap-4">
         {routes.map((section: routeProps) => (
@@ -75,6 +86,23 @@ export const NavbarSection = async () => {
         <ThemeSwitcher />
         <LanguageSwitcher />
       </NavbarContent>
+
+      <NavbarMenu>
+        {routes.map((section: routeProps) => (
+          <NavbarMenuItem key={section.url}>
+            <Link
+              className={
+                path === section.url
+                  ? "w-full px-3 py-1.5 rounded-lg bg-red-200"
+                  : "w-full px-3 py-1.5 rounded-lg"
+              }
+              href={section.url}
+            >
+              {section.label}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 };
