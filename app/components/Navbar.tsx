@@ -21,33 +21,37 @@ export const NavbarSection = async () => {
   const pathname = usePathname();
   const pathnameSegments = pathname.split("/");
   const language = pathnameSegments[1];
-  const path = pathnameSegments[2] ? `/${pathnameSegments[2]}` : "/";
+  const path = pathnameSegments[2]
+    ? `/${language}/${pathnameSegments[2]}`
+    : `/${language}`;
   const dict = await getDictionaryCommon(language);
-  const direction = language == "en" ? "ltr" : "rtl";
+  const direction = language === "en" ? "ltr" : "rtl";
 
   const routes: routeProps[] = [
     {
       label: `${dict.about}`,
-      url: "/",
+      url: `/${language}`,
     },
     {
       label: `${dict.projects}`,
-      url: "/projects",
+      url: `/${language}/projects`,
     },
     {
       label: `${dict.services}`,
-      url: "/services",
+      url: `/${language}/services`,
     },
     {
       label: `${dict.order_project}`,
-      url: "/order_project",
+      url: `/${language}/order_project`,
     },
   ];
 
   return (
     <Navbar dir={direction} isBlurred>
       <NavbarBrand>
-        <VimiladLogo />
+        <Link href={`/${language}`}>
+          <VimiladLogo />
+        </Link>
       </NavbarBrand>
 
       <NavbarContent className="hidden md:flex gap-4">
