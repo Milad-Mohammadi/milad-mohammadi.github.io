@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className={vazir.className}>
+      <body
+        className={`${vazir.className} bg-white dark:bg-black text-onWhite dark:text-onBlack`}
+      >
         <Providers>
           <NavbarSection />
           {children}
