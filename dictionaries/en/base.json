@@ -1,1 +1,7 @@
-{}
+{
+  "notFound": {
+    "title": "Page Not Found | 404",
+    "description": "Are you lost baby girl?",
+    "backToHome": "Back to My Story"
+  }
+}
