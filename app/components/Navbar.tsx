@@ -1,74 +1,63 @@
 "use client";
 import Link from "next/link";
-import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+} from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { getDictionaryCommon } from "../[lang]/dictionaries_common";
+import { VimiladLogo } from "./icons/VimiladLogo";
 
 interface routeProps {
   label: string;
   url: string;
 }
 
-const routes: routeProps[] = [
-  {
-    label: "about",
-    url: "/",
-  },
-  {
-    label: "projects",
-    url: "/projects",
-  },
-  {
-    label: "contact",
-    url: "/contact",
-  },
-];
-
-export const NavbarSection = () => {
+export const NavbarSection = async () => {
   const pathname = usePathname();
+  const pathnameSegments = pathname.split("/");
+  const language = pathnameSegments[1];
+  const path = pathnameSegments[2] ? `/${pathnameSegments[2]}` : "/";
+  const dict = await getDictionaryCommon(language);
+  const direction = language == "en" ? "ltr" : "rtl";
+
+  const routes: routeProps[] = [
+    {
+      label: `${dict.about}`,
+      url: "/",
+    },
+    {
+      label: `${dict.projects}`,
+      url: "/projects",
+    },
+    {
+      label: `${dict.services}`,
+      url: "/services",
+    },
+    {
+      label: `${dict.order_project}`,
+      url: "/order_project",
+    },
+  ];
 
   return (
-    <Navbar
-      classNames={{
-        wrapper: [
-          "bg-content2",
-          "rounded-xl",
-          "h-11",
-          "my-8",
-          "flex",
-          "justify-center",
-          "px-2",
-        ],
+    <Navbar dir={direction} isBlurred>
+      <NavbarBrand>
+        <VimiladLogo />
+      </NavbarBrand>
 
-        item: [
-          "transition-all",
-          "flex",
-          "relative",
-          "text-sm",
-          "text-default-500",
-          "font-medium",
-          "items-center",
-          "hover:text-opacity-60",
-          "data-[active=true]:after:content-['']",
-          "data-[active=true]:after:absolute",
-          "data-[active=true]:after:bottom-0",
-          "data-[active=true]:after:left-0",
-          "data-[active=true]:after:right-0",
-          "data-[active=true]:after:h-[2px]",
-          "data-[active=true]:after:rounded-[2px]",
-          "data-[active=true]:bg-background",
-          "data-[active=true]:text-default-foreground",
-          "data-[active=true]:dark:bg-default rounded-lg",
-        ],
-      }}
-      isBlurred
-    >
-      <NavbarContent className=" sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden md:flex gap-4">
         {routes.map((section: routeProps) => (
-          <NavbarItem key={section.url} isActive={pathname === section.url}>
+          <NavbarItem key={section.url} isActive={path === section.url}>
             <Link
-              className="px-3 py-1.5 rounded-lg"
-              color="foreground"
+              className={
+                path === section.url
+                  ? "px-3 py-1.5 rounded-lg bg-red-200"
+                  : "px-3 py-1.5 rounded-lg"
+              }
               href={section.url}
             >
               {section.label}

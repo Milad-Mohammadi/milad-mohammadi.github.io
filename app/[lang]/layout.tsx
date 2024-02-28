@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
-import Providers from "./providers";
-import "./globals.css";
-import { NavbarSection } from "./components/Navbar";
+import Providers from "../providers";
+import "../globals.css";
+import { NavbarSection } from "../components/Navbar";
 
 const vazir = Vazirmatn({ subsets: ["latin", "arabic", "latin-ext"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html>
       <body className={vazir.className}>
         <Providers>
           <NavbarSection />
