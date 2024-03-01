@@ -13,8 +13,8 @@ export default async function Home({ params: { lang } }) {
 
   return (
     <PageContainer language={lang}>
-      <section className="w-full">
-        <div className="relative">
+      <section>
+        <div className="md:bg-[url('/developer.svg')] bg-no-repeat bg-contain">
           <div className="grid items-end justify-center md:gap-10 md:grid-cols-2 lg:px-10 xl:px-28 2xl:px-80">
             <div className="md:hidden items-end justify-end relative">
               <FlippedImage
@@ -28,7 +28,7 @@ export default async function Home({ params: { lang } }) {
               <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
             </div>
 
-            <div className="flex flex-col gap-4 md:gap-6">
+            <div className="flex flex-col gap-4 md:gap-6 mb-10">
               <div className="space-y-4">
                 <TextLabelBold text={dict.about.name} />
                 <TextHeader text={dict.about.title} />

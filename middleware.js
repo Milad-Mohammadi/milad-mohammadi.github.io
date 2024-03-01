@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 let locales = ["en", "fa"];
-let excludedFileExtensions = [".png", ".jpg", ".jpeg", ".pdf"]; // Add more file extensions as needed
+let excludedFileExtensions = [".png", ".jpg", ".jpeg", ".pdf", ".svg"]; // Add more file extensions as needed
 
 function getLocale(request) {
   return locales[0];

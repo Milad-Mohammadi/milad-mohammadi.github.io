@@ -1,6 +1,10 @@
 "use client";
 import Link from "next/link";
 import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownTrigger,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -8,6 +12,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
+  DropdownMenu,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -15,6 +20,7 @@ import { getDictionaryCommon } from "../[lang]/dictionaries_common";
 import { VimiladLogo } from "./icons/VimiladLogo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import React from "react";
+import { IconMenu } from "./icons/IconMenu";
 
 interface routeProps {
   label: string;
@@ -22,7 +28,6 @@ interface routeProps {
 }
 
 export const NavbarSection = async () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const pathnameSegments = pathname.split("/");
   const language = pathnameSegments[1];
@@ -52,12 +57,28 @@ export const NavbarSection = async () => {
   ];
 
   return (
-    <Navbar dir={direction} isBlurred className="bg-white dark:bg-black">
+    <Navbar dir={direction} isBlurred>
       <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
-        />
+        <Dropdown backdrop="blur">
+          <DropdownTrigger>
+            <Button variant="ghost" className="visible md:invisible">
+              <IconMenu />
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu variant="faded" aria-label="Static Actions">
+            {routes.map((section: routeProps) => (
+              <DropdownItem key={section.url}>
+                <Link
+                  className={path === section.url ? "font-black" : ""}
+                  href={section.url}
+                >
+                  {section.label}
+                </Link>
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+
         <NavbarBrand>
           <Link href={`/${language}`}>
             <VimiladLogo />

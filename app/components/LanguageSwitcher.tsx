@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Button } from "@nextui-org/react";
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
@@ -16,8 +17,8 @@ export function LanguageSwitcher() {
     : pathname.replace(`/fa`, `/en`);
 
   return (
-    <div className="flex space-x-4">
-      <Link href={newPath}>{language == "en" ? "فارسی" : "English"}</Link>
-    </div>
+    <Button href={newPath} as={Link} variant="faded">
+      {language == "en" ? "فارسی" : "English"}
+    </Button>
   );
 }

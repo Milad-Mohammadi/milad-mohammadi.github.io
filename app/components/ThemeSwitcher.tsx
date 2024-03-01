@@ -1,7 +1,10 @@
 "use client";
 
+import { Button } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { IconSun } from "./icons/IconSun";
+import { IconMoon } from "./icons/IconMoon";
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -15,9 +18,12 @@ export function ThemeSwitcher() {
 
   return (
     <div className="flex space-x-4">
-      <button onClick={() => setTheme(theme == "dark" ? "light" : "dark")}>
-        {theme == "dark" ? "تم روشن" : "تم تاریک"}
-      </button>
+      <Button
+        variant="faded"
+        onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
+      >
+        {theme == "dark" ? <IconSun /> : <IconMoon />}
+      </Button>
     </div>
   );
 }

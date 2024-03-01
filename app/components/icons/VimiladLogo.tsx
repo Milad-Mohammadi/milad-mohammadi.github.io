@@ -1,4 +1,3 @@
-import React from "react";
 export const VimiladLogo = () => (
   <svg
     height="34"
