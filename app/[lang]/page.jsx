@@ -15,7 +15,7 @@ export default async function Home({ params: { lang } }) {
       <section className="w-full">
         <div className="relative">
           <div className="grid items-end justify-center md:gap-10 md:grid-cols-2 lg:px-10 xl:px-28 2xl:px-80">
-            <div className="md:hidden items-center justify-end relative">
+            <div className="md:hidden items-end justify-end relative">
               <Image
                 alt="Hero"
                 height="400"
