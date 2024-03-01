@@ -1,14 +1,15 @@
-import Image from "next/image";
 import PageContainer from "./PageContainer";
 import { getDictionary } from "./dictionaries";
 import Link from "next/link";
 import TextHeader from "../components/text/TextHeader";
 import TextLabelBold from "../components/text/TextLabelBold";
 import TextBody60 from "../components/text/TextBody60";
+import FlippedImage from "../components/image/FlippedImage";
 import { Button } from "@nextui-org/react";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
+  const isRtl = lang.includes("fa");
 
   return (
     <PageContainer language={lang}>
@@ -16,12 +17,13 @@ export default async function Home({ params: { lang } }) {
         <div className="relative">
           <div className="grid items-end justify-center md:gap-10 md:grid-cols-2 lg:px-10 xl:px-28 2xl:px-80">
             <div className="md:hidden items-end justify-end relative">
-              <Image
+              <FlippedImage
                 alt="Hero"
                 height="400"
                 src="/hero.png"
                 width="400"
                 className="grayscale"
+                isRTL={isRtl}
               />
               <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
             </div>
@@ -42,12 +44,13 @@ export default async function Home({ params: { lang } }) {
               </div>
             </div>
             <div className="hidden md:flex items-center justify-end relative">
-              <Image
+              <FlippedImage
                 alt="Hero"
                 height="600"
                 src="/hero.png"
                 width="600"
                 className="grayscale transition duration-300 hover:grayscale-0"
+                isRTL={isRtl}
               />
               <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
             </div>
