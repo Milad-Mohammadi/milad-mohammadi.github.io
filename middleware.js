@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 let locales = ["en", "fa"];
+let excludedFileExtensions = [".png", ".jpg", ".jpeg", ".pdf"]; // Add more file extensions as needed
 
 function getLocale(request) {
   return locales[0];
@@ -8,14 +9,22 @@ function getLocale(request) {
 
 export function middleware(request) {
   const { pathname } = request.nextUrl;
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+
+  const isExcludedFile = excludedFileExtensions.some((extension) =>
+    pathname.toLowerCase().endsWith(extension)
   );
 
-  if (!pathnameHasLocale) {
-    const locale = getLocale(request);
-    request.nextUrl.pathname = `/${locale}${pathname}`;
-    return NextResponse.redirect(request.nextUrl);
+  if (!isExcludedFile) {
+    const pathnameHasLocale = locales.some(
+      (locale) =>
+        pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    );
+
+    if (!pathnameHasLocale) {
+      const locale = getLocale(request);
+      request.nextUrl.pathname = `/${locale}${pathname}`;
+      return NextResponse.redirect(request.nextUrl);
+    }
   }
 
   return;

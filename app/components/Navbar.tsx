@@ -52,7 +52,7 @@ export const NavbarSection = async () => {
   ];
 
   return (
-    <Navbar dir={direction} isBlurred>
+    <Navbar dir={direction} isBlurred className="bg-white dark:bg-black">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
