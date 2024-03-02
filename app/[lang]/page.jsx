@@ -6,6 +6,7 @@ import TextLabelBold from "../components/text/TextLabelBold";
 import TextBody60 from "../components/text/TextBody60";
 import FlippedImage from "../components/image/FlippedImage";
 import { Button } from "@nextui-org/react";
+import { IconArrowDown } from "../components/icons/IconArrowDown";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -36,7 +37,7 @@ export default async function Home({ params: { lang } }) {
               </div>
               <div className="flex flex-row items-start space-y-0 gap-4">
                 <Button href="#" as={Link}>
-                  {dict.about.readAboutMe}
+                  {dict.about.readAboutMe} <IconArrowDown />
                 </Button>
                 <Button href="#" as={Link} variant="bordered">
                   {dict.about.projects}
