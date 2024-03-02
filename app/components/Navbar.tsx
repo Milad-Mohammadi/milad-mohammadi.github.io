@@ -14,12 +14,12 @@ import {
   NavbarMenuToggle,
   DropdownMenu,
 } from "@nextui-org/react";
-import { usePathname } from "next/navigation";
+import { usePathname, redirect, RedirectType } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { getDictionaryCommon } from "../[lang]/dictionaries_common";
 import { VimiladLogo } from "./icons/VimiladLogo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IconMenu } from "./icons/IconMenu";
 
 interface routeProps {
@@ -27,49 +27,67 @@ interface routeProps {
   url: string;
 }
 
-export const NavbarSection = async () => {
+export const NavbarSection = () => {
   const pathname = usePathname();
   const pathnameSegments = pathname.split("/");
   const language = pathnameSegments[1];
   const path = pathnameSegments[2]
     ? `/${language}/${pathnameSegments[2]}`
     : `/${language}`;
-  const dict = await getDictionaryCommon(language);
   const direction = language === "en" ? "ltr" : "rtl";
+  const [routes, setRoutes] = useState<routeProps[]>([]);
 
-  const routes: routeProps[] = [
-    {
-      label: `${dict.about}`,
-      url: `/${language}`,
-    },
-    {
-      label: `${dict.projects}`,
-      url: `/${language}/projects`,
-    },
-    {
-      label: `${dict.services}`,
-      url: `/${language}/services`,
-    },
-    {
-      label: `${dict.order_project}`,
-      url: `/${language}/order_project`,
-    },
-  ];
+  useEffect(() => {
+    const fetchDictionaries = async () => {
+      try {
+        const dict = await getDictionaryCommon(language);
+        setRoutes([
+          {
+            label: `${dict.about}`,
+            url: `/${language}`,
+          },
+          {
+            label: `${dict.projects}`,
+            url: `/${language}/projects`,
+          },
+          {
+            label: `${dict.services}`,
+            url: `/${language}/services`,
+          },
+          {
+            label: `${dict.order_project}`,
+            url: `/${language}/order_project`,
+          },
+        ]);
+      } catch (error) {
+        // Handle error
+        console.error("Error fetching dictionaries:", error);
+      }
+    };
+
+    fetchDictionaries();
+  }, [language]);
 
   return (
     <Navbar dir={direction} isBlurred>
       <NavbarContent>
         <Dropdown backdrop="blur">
           <DropdownTrigger>
-            <Button variant="ghost" className="visible md:invisible">
+            <Button
+              isIconOnly
+              variant="light"
+              className="visible md:invisible p-0"
+            >
               <IconMenu />
             </Button>
           </DropdownTrigger>
-          <DropdownMenu variant="faded" aria-label="Static Actions">
+          <DropdownMenu variant="faded" aria-label="Menu">
             {routes.map((section: routeProps) => (
               <DropdownItem key={section.url}>
                 <Link
-                  className={path === section.url ? "font-black" : ""}
+                  className={`flex w-full h-full items-center justify-center rounded ${
+                    path === section.url ? "font-black border-x-1" : ""
+                  }`}
                   href={section.url}
                 >
                   {section.label}

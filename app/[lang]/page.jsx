@@ -14,7 +14,7 @@ export default async function Home({ params: { lang } }) {
   return (
     <PageContainer language={lang}>
       <section>
-        <div className="md:bg-[url('/developer.svg')] bg-no-repeat bg-contain">
+        <div className="md:bg-[url('/developer.svg')] dark:md:bg-[url('/developer-dark.svg')] bg-no-repeat bg-contain">
           <div className="grid items-end justify-center md:gap-10 md:grid-cols-2 lg:px-10 xl:px-28 2xl:px-80">
             <div className="md:hidden items-end justify-end relative">
               <FlippedImage

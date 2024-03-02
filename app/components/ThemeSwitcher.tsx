@@ -20,6 +20,8 @@ export function ThemeSwitcher() {
     <div className="flex space-x-4">
       <Button
         variant="faded"
+        radius="full"
+        isIconOnly
         onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
       >
         {theme == "dark" ? <IconSun /> : <IconMoon />}

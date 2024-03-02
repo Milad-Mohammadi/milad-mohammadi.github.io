@@ -17,8 +17,15 @@ export function LanguageSwitcher() {
     : pathname.replace(`/fa`, `/en`);
 
   return (
-    <Button href={newPath} as={Link} variant="faded">
-      {language == "en" ? "فارسی" : "English"}
+    <Button
+      isIconOnly
+      href={newPath}
+      as={Link}
+      variant="faded"
+      radius="full"
+      className="pt-0.5"
+    >
+      {language == "en" ? "فا" : "En"}
     </Button>
   );
 }
