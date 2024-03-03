@@ -33,6 +33,7 @@ export const NavbarSection = () => {
     ? `/${language}/${pathnameSegments[2]}`
     : `/${language}`;
   const [routes, setRoutes] = useState<routeProps[]>([]);
+  const direction = language === "en" ? "ltr" : "rtl";
 
   useEffect(() => {
     const fetchDictionaries = async () => {
@@ -101,14 +102,14 @@ export const NavbarSection = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex gap-4">
+      <NavbarContent className="hidden md:flex gap-4" dir={direction}>
         {routes.map((section: routeProps) => (
           <NavbarItem key={section.url} isActive={path === section.url}>
             <Link
               className={
                 path === section.url
-                  ? "px-3 py-1.5 rounded-lg bg-red-200"
-                  : "px-3 py-1.5 rounded-lg"
+                  ? "px-3 py-1.5 rounded-lg bg-onWhite/10 dark:bg-onBlack/10"
+                  : "px-3 py-1.5 rounded-lg transition duration-300 outline outline-0 hover:outline-2 outline-onWhite/40 dark:outline-onBlack/30"
               }
               href={section.url}
             >

@@ -25,7 +25,6 @@ import {
   JetpackComposeSVG,
   KotlinSVG,
   MongoDBSVG,
-  MongooseSVG,
   MySqlSVG,
   NextJsSVG,
   NextUISVG,
@@ -64,7 +63,10 @@ export default async function Home({ params: { lang } }) {
             </div>
             <div className="flex flex-row items-start space-y-0 gap-4">
               <Button href="#" as={Link} className="flex items-center">
-                {dict.about.readAboutMe} <IconArrowDown />
+                {dict.about.readAboutMe}
+                <div className="animate-bounce">
+                  <IconArrowDown />
+                </div>
               </Button>
               <Button href="#" as={Link} variant="bordered">
                 {dict.about.projects}
@@ -127,7 +129,7 @@ export default async function Home({ params: { lang } }) {
         <CardSurface language={lang} classname="xl:hidden md:col-span-2">
           <div className="flex flex-col p-6 place-items-center md:place-items-start">
             <TextTitleSmall text={dict.intro.mySkills} />
-            <div className="grid grid-cols-6 gap-10 py-6 place-content-center w-full place-items-center">
+            <div className="grid grid-cols-5 gap-10 py-6 place-content-center w-full place-items-center">
               <AndroidSVG />
               <KotlinSVG />
               <JavaSVG />

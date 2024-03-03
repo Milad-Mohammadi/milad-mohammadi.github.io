@@ -3,6 +3,8 @@ import { Vazirmatn } from "next/font/google";
 import Providers from "../providers";
 import "../globals.css";
 import { NavbarSection } from "../components/Navbar";
+import { Suspense } from "react";
+import LoadingLayout from "./loading";
 
 const vazir = Vazirmatn({ subsets: ["latin", "arabic", "latin-ext"] });
 
@@ -22,8 +24,10 @@ export default function RootLayout({
         className={`${vazir.className} bg-white dark:bg-black text-onWhite dark:text-onBlack`}
       >
         <Providers>
-          <NavbarSection />
-          {children}
+          <Suspense fallback={<LoadingLayout />}>
+            <NavbarSection />
+            {children}
+          </Suspense>
         </Providers>
       </body>
     </html>

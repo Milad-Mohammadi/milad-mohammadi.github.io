@@ -55,7 +55,7 @@ export const IconSun = () => (
 
 export const IconMultiplatform = (props) => (
   <svg
-    width="400"
+    width="500"
     viewBox="0 0 187 141"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +180,7 @@ export const IconMenu = () => (
   </svg>
 );
 
-export const IconArrowDown = () => (
+export const IconArrowDown = (pros) => (
   <svg
     width="16"
     height="16"
@@ -244,9 +244,9 @@ export const KotlinSVG = () => {
         stroke="none"
         stroke-linecap="round"
         stroke-linejoin="round"
-        stroke-width="1"
+        strokeWidth="1"
       >
-        <g fill-rule="nonzero" id="twitter-profile-copy" stroke-width="24">
+        <g fill-rule="nonzero" id="twitter-profile-copy" strokeWidth="24">
           <g id="Group" transform="translate(11.000000, 14.000000)">
             <g id="kotlin-logo" transform="translate(3.000000, 0.000000)">
               <polygon
@@ -334,27 +334,27 @@ export const JetpackComposeSVG = () => {
       <path
         d="M15 57.3938V120.844C15 127.147 18.2977 132.992 23.6935 136.251L80.2245 170.397C85.931 173.844 93.0753 173.855 98.792 170.425L155.761 136.243C161.183 132.99 164.5 127.131 164.5 120.809V57.4286C164.5 50.9784 161.049 45.0212 155.453 41.813L98.4829 9.15021C92.9216 5.9617 86.0841 5.9716 80.532 9.17617L24.002 41.8042C18.4316 45.0193 15 50.9622 15 57.3938Z"
         className="stroke-onWhite dark:stroke-onBlack"
-        stroke-width="13"
+        strokeWidth="13"
       />
       <path
         d="M59.6875 115.264L63.8661 108.442L59.6875 115.264L83.5976 129.909C88.0724 132.65 93.7042 132.658 98.1871 129.931L122.277 115.274C126.452 112.733 129 108.2 129 103.313V75.952C129 70.9654 126.348 66.3552 122.037 63.8489L97.9464 49.8431L94.042 56.5588L97.9464 49.8431C93.5836 47.3066 88.1933 47.3145 83.8379 49.8636L59.9282 63.8578C55.6371 66.3693 53 70.9684 53 75.9404V103.325C53 108.197 55.5329 112.719 59.6875 115.264Z"
         className="stroke-onWhite dark:stroke-onBlack"
-        stroke-width="15"
+        strokeWidth="15"
       />
       <path
         d="M18 49L61.5 73.5"
         className="stroke-onWhite dark:stroke-onBlack"
-        stroke-width="13"
+        strokeWidth="13"
       />
       <path
         d="M90.5 123.5V173"
         className="stroke-onWhite dark:stroke-onBlack"
-        stroke-width="13"
+        strokeWidth="13"
       />
       <path
         d="M120 73L162.5 47"
         className="stroke-onWhite dark:stroke-onBlack"
-        stroke-width="13"
+        strokeWidth="13"
       />
     </svg>
   );
