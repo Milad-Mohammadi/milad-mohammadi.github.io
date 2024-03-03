@@ -1,12 +1,40 @@
-import PageContainer from "./PageContainer";
+import PageContainer from "../components/container/PageContainer";
 import { getDictionary } from "./dictionaries";
 import Link from "next/link";
 import TextHeader from "../components/text/TextHeader";
 import TextLabelBold from "../components/text/TextLabelBold";
 import TextBody60 from "../components/text/TextBody60";
+import TextTitleSmall from "../components/text/TextTitleSmall";
 import FlippedImage from "../components/image/FlippedImage";
 import { Button } from "@nextui-org/react";
-import { IconArrowDown } from "../components/icons/IconArrowDown";
+import {
+  GithubSVG,
+  IconArrowDown,
+  IconInstagram,
+  IconStackoverflow,
+  LinkedInSVG,
+} from "../components/icons";
+import CardSurface from "../components/container/CardSurface";
+import { IconMultiplatform } from "../components/icons";
+import {
+  AndroidSVG,
+  ExpressSVG,
+  FigmaSVG,
+  JavaSVG,
+  JavascriptSVG,
+  JetpackComposeSVG,
+  KotlinSVG,
+  MongoDBSVG,
+  MongooseSVG,
+  MySqlSVG,
+  NextJsSVG,
+  NextUISVG,
+  ReactSVG,
+  ShadcnSVG,
+  SqliteSVG,
+  TailwindSVG,
+  TypescriptSVG,
+} from "../components/icons";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -14,49 +42,176 @@ export default async function Home({ params: { lang } }) {
 
   return (
     <PageContainer language={lang}>
-      <section>
-        <div className="md:bg-[url('/developer.svg')] dark:md:bg-[url('/developer-dark.svg')] bg-no-repeat bg-contain">
-          <div className="grid items-end justify-center md:gap-10 md:grid-cols-2 lg:px-10 xl:px-28 2xl:px-80">
-            <div className="md:hidden items-end justify-end relative">
-              <FlippedImage
-                alt="Hero"
-                height="400"
-                src="/hero.png"
-                width="400"
-                className="grayscale"
-                isRTL={isRtl}
-              />
-              <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
-            </div>
+      <section className="md:bg-[url('/developer.svg')] dark:md:bg-[url('/developer-dark.svg')] bg-no-repeat bg-contain">
+        <div className="grid items-end justify-center md:gap-10 md:grid-cols-2 lg:px-10 xl:px-28 2xl:px-80">
+          <div className="md:hidden items-end justify-end relative">
+            <FlippedImage
+              alt="Hero"
+              height="400"
+              src="/hero.png"
+              width="400"
+              className="grayscale"
+              isRTL={isRtl}
+            />
+            <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
+          </div>
 
-            <div className="flex flex-col gap-4 md:gap-6 mb-10">
-              <div className="space-y-4">
-                <TextLabelBold text={dict.about.name} />
-                <TextHeader text={dict.about.title} />
-                <TextBody60 text={dict.about.shortDescription} />
-              </div>
-              <div className="flex flex-row items-start space-y-0 gap-4">
-                <Button href="#" as={Link}>
-                  {dict.about.readAboutMe} <IconArrowDown />
-                </Button>
-                <Button href="#" as={Link} variant="bordered">
-                  {dict.about.projects}
-                </Button>
-              </div>
+          <div className="flex flex-col gap-4 md:gap-6 mb-10">
+            <div className="space-y-4">
+              <TextLabelBold text={dict.about.name} />
+              <TextHeader text={dict.about.title} />
+              <TextBody60 text={dict.about.shortDescription} />
             </div>
-            <div className="hidden md:flex items-center justify-end relative">
-              <FlippedImage
-                alt="Hero"
-                height="600"
-                src="/hero.png"
-                width="600"
-                className="grayscale transition duration-300 hover:grayscale-0"
-                isRTL={isRtl}
-              />
-              <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
+            <div className="flex flex-row items-start space-y-0 gap-4">
+              <Button href="#" as={Link} className="flex items-center">
+                {dict.about.readAboutMe} <IconArrowDown />
+              </Button>
+              <Button href="#" as={Link} variant="bordered">
+                {dict.about.projects}
+              </Button>
             </div>
           </div>
+          <div className="hidden md:flex items-center justify-end relative">
+            <FlippedImage
+              alt="Hero"
+              height="600"
+              src="/hero.png"
+              width="600"
+              className="grayscale transition duration-300 hover:grayscale-0"
+              isRTL={isRtl}
+            />
+            <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
+          </div>
         </div>
+      </section>
+
+      <section className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 lg:px-10 xl:px-28 2xl:px-80 pt-10">
+        <CardSurface language={lang} classname="md:col-span-2">
+          <Link href={"#"}>
+            <div className="flex flex-col sm:flex-row place-items-center sm:place-items-start">
+              <div className="flex flex-col w-full p-6 gap-1">
+                <TextTitleSmall text={dict.intro.whatIdo} className="pb-2" />
+                <TextBody60 text={`• ${dict.intro.androidDev}`} />
+                <TextBody60 text={`• ${dict.intro.webDev}`} />
+                <TextBody60 text={`• ${dict.intro.uiDesign}`} />
+                <TextBody60 text={`• ${dict.intro.tvDev}`} />
+                <TextBody60 text={`• ${dict.intro.watchDev}`} />
+              </div>
+              <IconMultiplatform className="hover:drop-shadow-xl hidden sm:flex" />
+            </div>
+          </Link>
+        </CardSurface>
+        <CardSurface
+          language={lang}
+          classname="bg-[url('/pattern_earh.svg')] bg-cover	bg-no-repeat"
+        >
+          <div className="flex flex-col gap-4 px-6 py-10">
+            <TextHeader text={dict.intro.projects} />
+            <TextBody60 text={dict.intro.completedProjects} />
+            <Button color="primary" variant="bordered">
+              {dict.intro.viewAll}
+            </Button>
+          </div>
+        </CardSurface>
+        <CardSurface
+          language={lang}
+          classname="outline outline-2 outline-primary bg-[url('/pattern_dot.svg')] bg-cover bg-no-repeat"
+        >
+          <div className="flex flex-col gap-4 px-6 py-10">
+            <TextHeader text={dict.intro.years} />
+            <TextBody60 text={dict.intro.yearsOfExperience} />
+            <Button color="primary">{dict.intro.downloadResume}</Button>
+          </div>
+        </CardSurface>
+
+        <CardSurface language={lang} classname="xl:hidden md:col-span-2">
+          <div className="flex flex-col p-6 place-items-center md:place-items-start">
+            <TextTitleSmall text={dict.intro.mySkills} />
+            <div className="grid grid-cols-6 gap-10 py-6 place-content-center w-full place-items-center">
+              <AndroidSVG />
+              <KotlinSVG />
+              <JavaSVG />
+              <JetpackComposeSVG />
+              <JavascriptSVG />
+              <TypescriptSVG />
+              <ReactSVG />
+              <NextJsSVG />
+              <TailwindSVG />
+              <NextUISVG />
+              <ShadcnSVG />
+              <ExpressSVG />
+              <MongoDBSVG />
+              <SqliteSVG />
+              <MySqlSVG />
+              <FigmaSVG />
+            </div>
+          </div>
+        </CardSurface>
+
+        <CardSurface
+          language={lang}
+          classname="bg-[url('/pattern1.svg')] bg-cover bg-no-repeat"
+        >
+          <div className="flex flex-col p-6 place-items-center">
+            <TextTitleSmall text={dict.intro.getInTouch} />
+            <div className="grid grid-cols-1 gap-5 pt-6">
+              <Button className="outline outline-2 outline-primary dark:outline-0">
+                <LinkedInSVG /> @vimilad
+              </Button>
+              <Button className="outline outline-2 outline-primary dark:outline-0">
+                Mohammadi.dev@gmail.com
+              </Button>
+              <Button className="outline outline-2 outline-primary dark:outline-0">
+                {dict.intro.phone}
+              </Button>
+            </div>
+          </div>
+        </CardSurface>
+        <CardSurface
+          language={lang}
+          classname="bg-[url('/pattern_line.svg')] bg-cover bg-no-repeat"
+        >
+          <div className="flex flex-col p-6 place-items-center">
+            <TextTitleSmall text={dict.intro.exploreMyWork} />
+            <div className="grid grid-cols-1 gap-5 pt-6">
+              <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
+                <GithubSVG /> @Milad-Mohammadi
+              </Button>
+              <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
+                <IconStackoverflow /> @Milad-Mohammadi
+              </Button>
+              <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
+                <IconInstagram /> @vimilad
+              </Button>
+            </div>
+          </div>
+        </CardSurface>
+        <CardSurface
+          language={lang}
+          classname="invisible xl:visible md:col-span-2"
+        >
+          <div className="flex flex-col p-6 place-items-center md:place-items-start">
+            <TextTitleSmall text={dict.intro.mySkills} />
+            <div className="grid grid-cols-6 gap-10 py-6 place-content-center w-full place-items-center">
+              <AndroidSVG />
+              <KotlinSVG />
+              <JavaSVG />
+              <JetpackComposeSVG />
+              <JavascriptSVG />
+              <TypescriptSVG />
+              <ReactSVG />
+              <NextJsSVG />
+              <TailwindSVG />
+              <NextUISVG />
+              <ShadcnSVG />
+              <ExpressSVG />
+              <MongoDBSVG />
+              <SqliteSVG />
+              <MySqlSVG />
+              <FigmaSVG />
+            </div>
+          </div>
+        </CardSurface>
       </section>
     </PageContainer>
   );

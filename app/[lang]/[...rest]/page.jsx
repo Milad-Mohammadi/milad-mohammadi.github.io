@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PageContainer from "../PageContainer";
+import PageContainer from "../../components/container/PageContainer";
 import { getDictionary } from "../dictionaries";
 
 export default async function NotFound({ params: { lang } }) {

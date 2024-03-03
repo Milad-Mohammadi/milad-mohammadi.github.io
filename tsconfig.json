@@ -21,6 +21,16 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/[lang]/page.jsx", "app/components/Navbar.tsx", "app/[lang]/layout.jsx", "app/components/text/TextHeader.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/[lang]/page.jsx",
+    "app/components/Navbar.tsx",
+    "app/[lang]/layout.jsx",
+    "app/components/text/TextHeader.jsx",
+    "app/components/icons/index.jsx"
+  ],
   "exclude": ["node_modules"]
 }

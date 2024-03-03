@@ -11,14 +11,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        primary: "#613dc1",
+        secondary: "#00F0FF",
         black: "#1C1C1C",
+        blackSurface: "#232323",
         white: "#FDFDFD",
+        whiteSurface: "#e2e2e2",
         onBlack: "#C6C6C6",
         onWhite: "#0F141E",
         purple: "#4B0082",
-        purple2: "#800080",
         royalBlue: "#4169E1",
-        gold: "#FFD700",
         silver: "#C0C0C0",
         silver2: "#B0B0B0",
         gray: "#333333",

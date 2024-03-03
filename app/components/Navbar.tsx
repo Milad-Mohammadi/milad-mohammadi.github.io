@@ -11,16 +11,14 @@ import {
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarMenuToggle,
   DropdownMenu,
 } from "@nextui-org/react";
 import { usePathname, redirect, RedirectType } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { getDictionaryCommon } from "../[lang]/dictionaries_common";
-import { VimiladLogo } from "./icons/VimiladLogo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import React, { useEffect, useState } from "react";
-import { IconMenu } from "./icons/IconMenu";
+import { IconMenu, VimiladLogo } from "./icons";
 
 interface routeProps {
   label: string;
@@ -34,7 +32,6 @@ export const NavbarSection = () => {
   const path = pathnameSegments[2]
     ? `/${language}/${pathnameSegments[2]}`
     : `/${language}`;
-  const direction = language === "en" ? "ltr" : "rtl";
   const [routes, setRoutes] = useState<routeProps[]>([]);
 
   useEffect(() => {
@@ -69,7 +66,7 @@ export const NavbarSection = () => {
   }, [language]);
 
   return (
-    <Navbar dir={direction} isBlurred>
+    <Navbar isBlurred className="dark:bg-black">
       <NavbarContent>
         <Dropdown backdrop="blur">
           <DropdownTrigger>
