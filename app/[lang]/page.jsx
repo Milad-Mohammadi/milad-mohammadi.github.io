@@ -34,6 +34,7 @@ import {
   TailwindSVG,
   TypescriptSVG,
 } from "../components/icons";
+import Image from "next/image";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -188,10 +189,7 @@ export default async function Home({ params: { lang } }) {
             </div>
           </div>
         </CardSurface>
-        <CardSurface
-          language={lang}
-          classname="invisible xl:visible md:col-span-2"
-        >
+        <CardSurface language={lang} classname="hidden xl:grid md:col-span-2">
           <div className="flex flex-col p-6 place-items-center md:place-items-start">
             <TextTitleSmall text={dict.intro.mySkills} />
             <div className="grid grid-cols-6 gap-10 py-6 place-content-center w-full place-items-center">
@@ -214,6 +212,34 @@ export default async function Home({ params: { lang } }) {
             </div>
           </div>
         </CardSurface>
+      </section>
+
+      <section className="w-full my-24 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
+        <TextTitleSmall text="برخی از برندهایی که با آن‌ها همکاری داشته‌ام." />
+        <TextBody60 text="در سال‌های اخیر افتخار این را داشتم که با شرکت‌ها و برندهای داخلی و بین‌المللی بسیاری همکاری داشته باشم که برخی از آن‌ها در لیست زیر قابل مشاهده هستند." />
+        <div className="grid grid-cols-3 gap-10 lg:px-10 xl:px-28 2xl:px-0 place-content-center w-full place-items-center mt-4">
+          <Link href={"#"}>
+            <Image width={100} height={100} src={"/brand_realtyna.png"} />
+          </Link>
+          <Link href={"#"}>
+            <Image width={100} height={100} src={"/brand_listings.png"} />
+          </Link>
+          <Link href={"#"}>
+            <Image width={100} height={100} src={"/brand_reveali.png"} />
+          </Link>
+          <Link href={"#"}>
+            <Image width={100} height={100} src={"/brand_ut.png"} />
+          </Link>
+          <Link href={"#"}>
+            <Image width={100} height={100} src={"/brand_cysp.png"} />
+          </Link>
+          <Link href={"#"}>
+            <Image width={100} height={100} src={"/brand_ismvip.png"} />
+          </Link>
+          <Link href={"#"}>
+            <Image width={100} height={100} src={"/brand_mpm.jpg"} />
+          </Link>
+        </div>
       </section>
     </PageContainer>
   );
