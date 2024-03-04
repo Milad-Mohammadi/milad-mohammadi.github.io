@@ -7,9 +7,9 @@ export default async function Home({ params: { lang } }) {
   return (
     <main
       dir={direction}
-      className="flex min-h-screen flex-col items-center justify-between p-24"
+      className="flex flex-col items-center justify-between p-24"
     >
-      <div className="min-h-screen">{dict.order_project}</div>
+      <div className="">{dict.order_project}</div>
     </main>
   );
 }

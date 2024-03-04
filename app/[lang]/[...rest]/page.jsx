@@ -7,7 +7,7 @@ export default async function NotFound({ params: { lang } }) {
 
   return (
     <PageContainer language={lang}>
-      <div className="min-h-screen">
+      <div className="">
         <div className="space-y-2">
           <h1 className="text-xl">{dict.notFound.title}</h1>
           <h2>{dict.notFound.description}</h2>

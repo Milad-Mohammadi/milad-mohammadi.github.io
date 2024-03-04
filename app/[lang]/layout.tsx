@@ -5,6 +5,7 @@ import "../globals.css";
 import { NavbarSection } from "../components/Navbar";
 import { Suspense } from "react";
 import LoadingLayout from "./loading";
+import { FooterSection } from "../components/Footer";
 
 const vazir = Vazirmatn({ subsets: ["latin", "arabic", "latin-ext"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
           <Suspense fallback={<LoadingLayout />}>
             <NavbarSection />
             {children}
+            <FooterSection />
           </Suspense>
         </Providers>
       </body>

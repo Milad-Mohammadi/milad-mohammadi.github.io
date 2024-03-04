@@ -13,7 +13,7 @@ const PageContainer: React.FC<PageContainerProps> = ({
   return (
     <main
       dir={direction}
-      className="flex min-h-screen flex-col items-center justify-between px-10 py-2"
+      className="flex flex-col items-center justify-between px-10 py-2"
     >
       {children}
     </main>
