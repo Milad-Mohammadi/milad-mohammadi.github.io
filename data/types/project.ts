@@ -8,4 +8,5 @@ export type ProjectType = {
   images: string[];
   githubUrl: string;
   websiteUrl: string;
+  category: string;
 };

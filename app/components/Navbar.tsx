@@ -48,17 +48,18 @@ export const NavbarSection = () => {
             label: `${dict.projects}`,
             url: `/${language}/projects`,
           },
+          /* 
           {
             label: `${dict.services}`,
             url: `/${language}/services`,
           },
+          */
           {
             label: `${dict.order_project}`,
             url: `/${language}/order_project`,
           },
         ]);
       } catch (error) {
-        // Handle error
         console.error("Error fetching dictionaries:", error);
       }
     };

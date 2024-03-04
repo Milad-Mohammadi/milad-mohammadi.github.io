@@ -44,7 +44,7 @@ export default async function Home({ params: { lang } }) {
   return (
     <PageContainer language={lang}>
       <section className="md:bg-[url('/developer.svg')] dark:md:bg-[url('/developer-dark.svg')] bg-no-repeat bg-contain">
-        <div className="grid items-end justify-center md:gap-10 md:grid-cols-2 lg:px-10 xl:px-28 2xl:px-80">
+        <div className="grid items-end justify-center md:gap-10 md:grid-cols-2">
           <div className="md:hidden items-end justify-end relative">
             <FlippedImage
               alt="Hero"
@@ -89,7 +89,7 @@ export default async function Home({ params: { lang } }) {
         </div>
       </section>
 
-      <section className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 lg:px-10 xl:px-28 2xl:px-80 pt-10">
+      <section className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 pt-10">
         <CardSurface language={lang} classname="md:col-span-2">
           <Link href={"#"}>
             <div className="flex flex-col sm:flex-row place-items-center sm:place-items-start">
@@ -215,10 +215,10 @@ export default async function Home({ params: { lang } }) {
         </CardSurface>
       </section>
 
-      <section className="w-full my-24 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
+      <section className="w-full my-24 flex flex-col gap-2 place-items-center text-center">
         <TextTitleSmall text="آخرین پروژه‌ها" />
         <TextBody60 text="قدرت گرفته از خلاقیت، دقت و کیفیت؛ با استفاده از به‌روزترین تکنولوژی‌های روز دنیا" />
-        <div className="grid grid-cols-1 w-full mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20">
           {ProjectList.slice(0, 2).map((project) => (
             <CardSurface
               classname="flex flex-col md:flex-row place-items-center md:place-items-end"
@@ -229,7 +229,7 @@ export default async function Home({ params: { lang } }) {
                   src={project.banner}
                   width={550}
                   height={550}
-                  className="bottom-0 rounded-lg"
+                  className="bottom-0 overflow-hidden"
                 />
               </div>
 
@@ -282,7 +282,7 @@ export default async function Home({ params: { lang } }) {
         </div>
       </section>
 
-      <section className="w-full my-10 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-80 text-center">
+      <section className="w-full my-10 flex flex-col gap-2 place-items-center text-center">
         <TextTitleSmall text="بازخوردها درباره من" />
         <TextBody60 text="همکاران، مشتریان و عزیزانی که مدتی با هم همکاری داشتیم و متشکر از لطف و محبت آن‌ها هستم." />
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 overflow-hidden relative transition-all w-full mt-4">

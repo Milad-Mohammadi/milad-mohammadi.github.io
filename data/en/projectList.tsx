@@ -1,5 +1,5 @@
 import { AndroidSVG, ReactSVG } from "@/app/components/icons";
-import { ProjectType } from "../types";
+import { ProjectType } from "../types/project";
 
 export const ProjectList: ProjectType[] = [
   {
@@ -13,6 +13,7 @@ export const ProjectList: ProjectType[] = [
     githubUrl: "https://github.com/leoMirandaa/shadcn-landing-page.git",
     websiteUrl: "https://shadcn-landing-page.vercel.app/",
     banner: "/brand_realtyna.png",
+    category: "Android",
   },
   {
     logoUrl: "/brand_cysp.png",
@@ -24,7 +25,8 @@ export const ProjectList: ProjectType[] = [
     images: ["/brand_realtyna.png"],
     githubUrl: "https://github.com/leoMirandaa/shadcn-landing-page.git",
     websiteUrl: "https://shadcn-landing-page.vercel.app/",
-    banner: "/brand_realtyna.png",
+    banner: "/cover.png",
+    category: "Web",
   },
   {
     logoUrl: "/brand_cysp.png",
@@ -37,5 +39,19 @@ export const ProjectList: ProjectType[] = [
     githubUrl: "https://github.com/leoMirandaa/shadcn-landing-page.git",
     websiteUrl: "https://shadcn-landing-page.vercel.app/",
     banner: "/brand_realtyna.png",
+    category: "Bot",
+  },
+  {
+    logoUrl: "/brand_cysp.png",
+    title: "UniHi3",
+    subtitle: "Landing page template",
+    technologies: [<ReactSVG />, <AndroidSVG />],
+    description:
+      "Landing page  with essential sections to promote a particular product, service, event, or offer. It is fully responsive, customizable, has dark mode, meta tags and user-friendly interface.",
+    images: ["/brand_realtyna.png"],
+    githubUrl: "https://github.com/leoMirandaa/shadcn-landing-page.git",
+    websiteUrl: "https://shadcn-landing-page.vercel.app/",
+    banner: "/brand_realtyna.png",
+    category: "Android",
   },
 ];
