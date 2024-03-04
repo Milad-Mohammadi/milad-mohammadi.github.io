@@ -35,6 +35,7 @@ import {
   TypescriptSVG,
 } from "../components/icons";
 import Image from "next/image";
+import { ProjectList } from "@/data/en/projectList";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -212,6 +213,45 @@ export default async function Home({ params: { lang } }) {
             </div>
           </div>
         </CardSurface>
+      </section>
+
+      <section className="w-full my-24 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
+        <TextTitleSmall text="آخرین پروژه‌ها" />
+        <TextBody60 text="قدرت گرفته از خلاقیت، دقت و کیفیت؛ با استفاده از به‌روزترین تکنولوژی‌های روز دنیا" />
+        <div className="grid grid-cols-1 w-full mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20">
+          {ProjectList.slice(0, 2).map((project) => (
+            <CardSurface
+              classname="flex flex-col md:flex-row place-items-center md:place-items-end"
+              language={lang}
+            >
+              <div className="flex-auto w-full md:w-1/2">
+                <Image
+                  src={project.banner}
+                  width={550}
+                  height={550}
+                  className="bottom-0 rounded-lg"
+                />
+              </div>
+
+              <div className="w-full md:w-1/2 flex flex-col justify-between p-4 text-start gap-4">
+                <div className="flex flex-row place-items-center gap-2">
+                  <Image src={project.logoUrl} width={36} height={36} />
+                  <TextTitleSmall text={project.title} />
+                </div>
+                <TextBody60 text={project.subtitle} />
+
+                <div className="flex flex-row gap-4">
+                  {project.technologies}
+                </div>
+
+                <div className="flex flex-row gap-2 self-end">
+                  <Button>Detail</Button>
+                  <Button>View</Button>
+                </div>
+              </div>
+            </CardSurface>
+          ))}
+        </div>
       </section>
 
       <section className="w-full my-24 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
