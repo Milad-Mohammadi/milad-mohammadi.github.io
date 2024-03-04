@@ -6,7 +6,7 @@ import TextLabelBold from "../components/text/TextLabelBold";
 import TextBody60 from "../components/text/TextBody60";
 import TextTitleSmall from "../components/text/TextTitleSmall";
 import FlippedImage from "../components/image/FlippedImage";
-import { Button } from "@nextui-org/react";
+import { Button, User } from "@nextui-org/react";
 import {
   GithubSVG,
   IconArrowDown,
@@ -239,6 +239,30 @@ export default async function Home({ params: { lang } }) {
           <Link href={"#"}>
             <Image width={100} height={100} src={"/brand_mpm.jpg"} />
           </Link>
+        </div>
+      </section>
+
+      <section className="w-full my-10 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-80 text-center">
+        <TextTitleSmall text="بازخوردها درباره من" />
+        <TextBody60 text="همکاران، مشتریان و عزیزانی که مدتی با هم همکاری داشتیم و متشکر از لطف و محبت آن‌ها هستم." />
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 overflow-hidden relative transition-all w-full mt-4">
+          <div class="absolute bottom-0 left-0 z-10 w-full h-[400px] bg-gradient-to-t from-white via-white/30 dark:from-black dark:via-black/30" />
+          <CardSurface classname="p-4 mb-4 z-0 break-inside-avoid-column">
+            <User
+              name="Jane Doe"
+              description="Product Designer"
+              avatarProps={{
+                src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+              }}
+            />
+            <TextBody60 text={dict.about.shortDescription} />
+          </CardSurface>
+
+          <div class="absolute flex justify-center bottom-0 left-0 right-0 z-20 mb-10">
+            <Button as={Link} href="#" variant="bordered">
+              Show More
+            </Button>
+          </div>
         </div>
       </section>
     </PageContainer>
