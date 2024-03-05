@@ -17,7 +17,7 @@ const config: Config = {
         blackSurface: "#232323",
         white: "#FDFDFD",
         whiteSurface: "#ededed",
-        onBlack: "#C6C6C6",
+        onBlack: "#d6d6d6",
         onWhite: "#0F141E",
         purple: "#4B0082",
         royalBlue: "#4169E1",

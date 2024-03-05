@@ -4,7 +4,7 @@ import Link from "next/link";
 import TextHeader from "../components/text/TextHeader";
 import TextLabelBold from "../components/text/TextLabelBold";
 import TextBody60 from "../components/text/TextBody60";
-import TextTitleSmall from "../components/text/TextTitleSmall";
+import TextTitleMedium from "../components/text/TextTitleMedium";
 import FlippedImage from "../components/image/FlippedImage";
 import { Button, User } from "@nextui-org/react";
 import {
@@ -94,7 +94,7 @@ export default async function Home({ params: { lang } }) {
           <Link href={"#"}>
             <div className="flex flex-col sm:flex-row place-items-center sm:place-items-start">
               <div className="flex flex-col w-full p-6 gap-1">
-                <TextTitleSmall text={dict.intro.whatIdo} className="pb-2" />
+                <TextTitleMedium text={dict.intro.whatIdo} className="pb-2" />
                 <TextBody60 text={`• ${dict.intro.androidDev}`} />
                 <TextBody60 text={`• ${dict.intro.webDev}`} />
                 <TextBody60 text={`• ${dict.intro.uiDesign}`} />
@@ -130,7 +130,7 @@ export default async function Home({ params: { lang } }) {
 
         <CardSurface language={lang} classname="xl:hidden md:col-span-2">
           <div className="flex flex-col p-6 place-items-center md:place-items-start">
-            <TextTitleSmall text={dict.intro.mySkills} />
+            <TextTitleMedium text={dict.intro.mySkills} />
             <div className="grid grid-cols-5 gap-10 py-6 place-content-center w-full place-items-center">
               <AndroidSVG />
               <KotlinSVG />
@@ -157,7 +157,7 @@ export default async function Home({ params: { lang } }) {
           classname="bg-[url('/pattern1.svg')] bg-cover bg-no-repeat"
         >
           <div className="flex flex-col p-6 place-items-center">
-            <TextTitleSmall text={dict.intro.getInTouch} />
+            <TextTitleMedium text={dict.intro.getInTouch} />
             <div className="grid grid-cols-1 gap-5 pt-6">
               <Button className="outline outline-2 outline-primary dark:outline-0">
                 <LinkedInSVG /> @vimilad
@@ -176,7 +176,7 @@ export default async function Home({ params: { lang } }) {
           classname="bg-[url('/pattern_line.svg')] bg-cover bg-no-repeat"
         >
           <div className="flex flex-col p-6 place-items-center">
-            <TextTitleSmall text={dict.intro.exploreMyWork} />
+            <TextTitleMedium text={dict.intro.exploreMyWork} />
             <div className="grid grid-cols-1 gap-5 pt-6">
               <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
                 <GithubSVG /> @Milad-Mohammadi
@@ -192,7 +192,7 @@ export default async function Home({ params: { lang } }) {
         </CardSurface>
         <CardSurface language={lang} classname="hidden xl:grid md:col-span-2">
           <div className="flex flex-col p-6 place-items-center md:place-items-start">
-            <TextTitleSmall text={dict.intro.mySkills} />
+            <TextTitleMedium text={dict.intro.mySkills} />
             <div className="grid grid-cols-6 gap-10 py-6 place-content-center w-full place-items-center">
               <AndroidSVG />
               <KotlinSVG />
@@ -216,7 +216,7 @@ export default async function Home({ params: { lang } }) {
       </section>
 
       <section className="w-full my-24 flex flex-col gap-2 place-items-center text-center">
-        <TextTitleSmall text="آخرین پروژه‌ها" />
+        <TextTitleMedium text="آخرین پروژه‌ها" />
         <TextBody60 text="قدرت گرفته از خلاقیت، دقت و کیفیت؛ با استفاده از به‌روزترین تکنولوژی‌های روز دنیا" />
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20">
           {ProjectList.slice(0, 2).map((project) => (
@@ -236,7 +236,7 @@ export default async function Home({ params: { lang } }) {
               <div className="w-full md:w-1/2 flex flex-col justify-between p-4 text-start gap-4">
                 <div className="flex flex-row place-items-center gap-2">
                   <Image src={project.logoUrl} width={36} height={36} />
-                  <TextTitleSmall text={project.title} />
+                  <TextTitleMedium text={project.title} />
                 </div>
                 <TextBody60 text={project.subtitle} />
 
@@ -255,7 +255,7 @@ export default async function Home({ params: { lang } }) {
       </section>
 
       <section className="w-full my-24 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
-        <TextTitleSmall text="برخی از برندهایی که با آن‌ها همکاری داشته‌ام." />
+        <TextTitleMedium text="برخی از برندهایی که با آن‌ها همکاری داشته‌ام." />
         <TextBody60 text="در سال‌های اخیر افتخار این را داشتم که با شرکت‌ها و برندهای داخلی و بین‌المللی بسیاری همکاری داشته باشم که برخی از آن‌ها در لیست زیر قابل مشاهده هستند." />
         <div className="grid grid-cols-3 gap-10 lg:px-10 xl:px-28 2xl:px-0 place-content-center w-full place-items-center mt-4">
           <Link href={"#"}>
@@ -283,10 +283,10 @@ export default async function Home({ params: { lang } }) {
       </section>
 
       <section className="w-full my-10 flex flex-col gap-2 place-items-center text-center">
-        <TextTitleSmall text="بازخوردها درباره من" />
+        <TextTitleMedium text="بازخوردها درباره من" />
         <TextBody60 text="همکاران، مشتریان و عزیزانی که مدتی با هم همکاری داشتیم و متشکر از لطف و محبت آن‌ها هستم." />
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 overflow-hidden relative transition-all w-full mt-4">
-          <div class="absolute bottom-0 left-0 z-10 w-full h-[400px] bg-gradient-to-t from-white via-white/30 dark:from-black dark:via-black/30" />
+          <div className="absolute bottom-0 left-0 z-10 w-full h-[400px] bg-gradient-to-t from-white via-white/30 dark:from-black dark:via-black/30" />
           <CardSurface classname="p-4 mb-4 z-0 break-inside-avoid-column">
             <User
               name="Jane Doe"
@@ -298,7 +298,7 @@ export default async function Home({ params: { lang } }) {
             <TextBody60 text={dict.about.shortDescription} />
           </CardSurface>
 
-          <div class="absolute flex justify-center bottom-0 left-0 right-0 z-20 mb-10">
+          <div className="absolute flex justify-center bottom-0 left-0 right-0 z-20 mb-10">
             <Button as={Link} href="#" variant="bordered">
               Show More
             </Button>

@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import { getDictionaryCommon } from "../[lang]/dictionaries_common";
 import React, { useEffect, useState } from "react";
 import { Divider } from "@nextui-org/react";
-import TextTitleSmall from "./text/TextTitleSmall";
+import TextTitleMedium from "./text/TextTitleMedium";
 import TextBody60 from "./text/TextBody60";
 
 export const FooterSection = () => {
@@ -39,7 +39,7 @@ export const FooterSection = () => {
         </div>
 
         <div className="flex flex-col">
-          <TextTitleSmall text="Contact Me —" className="" />
+          <TextTitleMedium text="Contact Me —" className="" />
           <TextBody60
             text="I usually work on several projects but I’ll be happy to discuss new opportunities. Let’s get in touch!"
             className=""
@@ -47,7 +47,7 @@ export const FooterSection = () => {
         </div>
 
         <div className="flex flex-col">
-          <TextTitleSmall text="Current availability —" className="" />
+          <TextTitleMedium text="Current availability —" className="" />
           <TextBody60
             text="I usually work on several projects but I’ll be happy to discuss new opportunities. Let’s get in touch!"
             className=""

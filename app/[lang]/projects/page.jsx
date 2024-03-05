@@ -1,15 +1,15 @@
 "use client";
 
+import PageContainer from "@/app/components/container/PageContainer";
 import TextBody60 from "@/app/components/text/TextBody60";
-import TextTitleSmall from "@/app/components/text/TextTitleSmall";
+import TextTitleMedium from "@/app/components/text/TextTitleMedium";
 import { ProjectList } from "@/data/en/projectList";
 import { Chip, Image } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
 
-export default async function Home({ params: { lang } }) {
+export default function Home({ params: { lang } }) {
   const allProjects = lang === "fa" ? "همه" : "All";
-  const direction = lang == "en" ? "ltr" : "rtl";
   const uniqueCategories = [
     ...new Set(ProjectList.map((item) => item.category)),
   ];
@@ -23,7 +23,7 @@ export default async function Home({ params: { lang } }) {
   };
 
   return (
-    <main dir={direction} className="min-h-screen">
+    <PageContainer language={lang}>
       <div className="flex flex-row overflow-auto px-2 md:px-24 py-2 my-10 items-center justify-center">
         <Chip
           onClick={() => setSelectedCategory(allProjects)}
@@ -64,7 +64,7 @@ export default async function Home({ params: { lang } }) {
               <div className="flex flex-col p-4 border rounded-lg	border-1 border-white dark:border-black hover:border-black/20 dark:hover:border-white/20 hover:border-1 hover:bg-black/5 dark:hover:bg-white/5 w-fit">
                 <Image src={item.banner} width={300} height={300} />
                 <div className="flex flex-row gap-2">
-                  <TextTitleSmall text={item.title} className="mt-4" />
+                  <TextTitleMedium text={item.title} className="mt-4" />
                   {item.technologies}
                 </div>
                 <TextBody60 text={item.subtitle} className="" />
@@ -73,6 +73,6 @@ export default async function Home({ params: { lang } }) {
           </li>
         ))}
       </ul>
-    </main>
+    </PageContainer>
   );
 }
