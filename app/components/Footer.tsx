@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { getDictionaryCommon } from "../[lang]/dictionaries_common";
+import { getDictionary } from "../[lang]/dictionaries";
 import React, { useEffect, useState } from "react";
 import { Divider } from "@nextui-org/react";
 import TextTitleMedium from "./text/TextTitleMedium";
@@ -16,7 +16,7 @@ export const FooterSection = () => {
   useEffect(() => {
     const fetchDictionaries = async () => {
       try {
-        const dictionaries = await getDictionaryCommon(language);
+        const dictionaries = await getDictionary(language);
         setDict(dictionaries);
       } catch (error) {
         console.error("Error fetching dictionaries:", error);

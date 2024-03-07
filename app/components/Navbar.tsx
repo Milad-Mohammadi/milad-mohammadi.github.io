@@ -15,7 +15,7 @@ import {
 } from "@nextui-org/react";
 import { usePathname, redirect, RedirectType } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { getDictionaryCommon } from "../[lang]/dictionaries_common";
+import { getDictionary } from "../[lang]/dictionaries";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import React, { useEffect, useState } from "react";
 import { IconMenu, VimiladLogo } from "./icons";
@@ -38,24 +38,24 @@ export const NavbarSection = () => {
   useEffect(() => {
     const fetchDictionaries = async () => {
       try {
-        const dict = await getDictionaryCommon(language);
+        const dict = await getDictionary(language);
         setRoutes([
           {
-            label: `${dict.about}`,
+            label: `${dict.common.about}`,
             url: `/${language}`,
           },
           {
-            label: `${dict.projects}`,
+            label: `${dict.common.projects}`,
             url: `/${language}/projects`,
           },
           /* 
           {
-            label: `${dict.services}`,
+            label: `${dict.common.services}`,
             url: `/${language}/services`,
           },
           */
           {
-            label: `${dict.order_project}`,
+            label: `${dict.common.order_project}`,
             url: `/${language}/order_project`,
           },
         ]);

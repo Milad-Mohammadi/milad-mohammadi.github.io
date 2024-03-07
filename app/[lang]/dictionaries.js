@@ -1,8 +1,8 @@
 const dictionaries = {
   en: () =>
-    import("../../dictionaries/en/base.json").then((module) => module.default),
+    import("../../dictionaries/en.json").then((module) => module.default),
   fa: () =>
-    import("../../dictionaries/fa/base.json").then((module) => module.default),
+    import("../../dictionaries/fa.json").then((module) => module.default),
 };
 
 export const getDictionary = async (locale) => {
