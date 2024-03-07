@@ -5,8 +5,13 @@ import {
   ScrollShadow,
   Select,
   SelectItem,
-  Spacer,
   Textarea,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
 } from "@nextui-org/react";
 import PageContainer from "@/app/components/container/PageContainer";
 import { getDictionary } from "../dictionaries";
@@ -14,8 +19,14 @@ import TextTitleMedium from "@/app/components/text/TextTitleMedium";
 import TextBody60 from "@/app/components/text/TextBody60";
 import TextTitleSmall from "@/app/components/text/TextTitleSmall";
 import Link from "next/link";
+import React from "react";
 
 export default async function Home({ params: { lang } }) {
+  const [error, setError] = React.useState({});
+  const [isSending, setIsSending] = React.useState(false);
+  const [modalTitle, setModalTitle] = React.useState("");
+  const [modalText, setModalText] = React.useState("");
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const dict = await getDictionary(lang);
   const plans = ["مشاوره", "وب‌سایت", "اندروید"];
   const menuClassnames =
@@ -25,6 +36,7 @@ export default async function Home({ params: { lang } }) {
     e.preventDefault();
     e.stopPropagation();
 
+    setIsSending(true);
     const formData = new FormData(e.target);
 
     const name = formData.get("name");
@@ -36,37 +48,78 @@ export default async function Home({ params: { lang } }) {
     const state = formData.get("state");
     const description = formData.get("description");
 
-    const formattedText = `
-  Name: ${name}
-  Plan: ${plan}
-  Company: ${company}
-  Project Name: ${projectName}
-  Country: ${country}
-  State: ${state}
-  Description: ${description}
-`;
+    console.log(description);
+    if (name.length === 0) {
+      setIsSending(false);
+      setError({ text: "Fill the name", name: "name" });
+      return;
+    } else if (email.length === 0) {
+      setIsSending(false);
+      setError({ text: "Fill the email", name: "email" });
+      return;
+    } else if (plan === null) {
+      setIsSending(false);
+      setError({ text: "Fill the plan", name: "plan" });
+      return;
+    } else if (country.length === 0) {
+      setIsSending(false);
+      setError({ text: "Fill the country", name: "country" });
+      return;
+    } else if (state.length === 0) {
+      setIsSending(false);
+      setError({ text: "Fill the state", name: "state" });
+      return;
+    } else if (description.length === 0) {
+      setIsSending(false);
+      setError({ text: "Fill the description", name: "description" });
+      return;
+    } else {
+      setError({});
+      const formattedText = `
+      Name: ${name}
+      Plan: ${plan}
+      Company: ${company}
+      Project Name: ${projectName}
+      Country: ${country}
+      State: ${state}
+      Description: ${description}
+    `;
 
-    fetch("https://formcarry.com/s/zWGUQedrzGY", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, formattedText }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.code === 200) {
-          alert("We received your submission, thank you!");
-        } else if (response.code === 422) {
-          setError(response.message);
-        } else {
-          setError(response.message);
-        }
+      fetch("https://formcarry.com/s/zWGUQedrzGY", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, formattedText }),
       })
-      .catch((error) => {
-        setError(error.message ? error.message : error);
-      });
+        .then((response) => response.json())
+        .then((response) => {
+          setIsSending(false);
+
+          if (response.code === 200) {
+            setModalTitle("Order Sent");
+            setModalText("I recieved your message and will reponsd asap.");
+            onOpen();
+          } else if (response.code === 422) {
+            // Show Error dialog
+            setModalTitle("Order Error");
+            setModalText(response.message);
+            onOpen();
+          } else {
+            // Show Error dialog
+            setModalTitle("Order Error");
+            setModalText(response.message);
+            onOpen();
+          }
+        })
+        .catch((error) => {
+          setIsSending(false);
+          setModalTitle("Order Error");
+          setModalText(error.message ? error.message : error);
+          onOpen();
+        });
+    }
   };
 
   return (
@@ -188,20 +241,27 @@ export default async function Home({ params: { lang } }) {
         </ScrollShadow>
         <form className="flex flex-col gap-4 mt-10" onSubmit={onSubmit}>
           <Input
+            aria-label="name"
             name="name"
             type="name"
             variant="bordered"
             placeholder="نام و نام خانوادگی"
+            errorMessage={error.name === "name" ? error.text : ""}
+            isInvalid={error.name === "name"}
           />
 
           <Input
+            aria-label="email"
             name="email"
             type="email"
             variant="bordered"
             placeholder="ایمیل"
+            errorMessage={error.name === "email" ? error.text : ""}
+            isInvalid={error.name === "email"}
           />
 
           <Select
+            aria-label="plan"
             name="plan"
             variant="bordered"
             placeholder="پلن مورد نظر"
@@ -215,6 +275,8 @@ export default async function Home({ params: { lang } }) {
                 base: [`${lang === "fa" ? "text-end" : "text-start"}`],
               },
             }}
+            errorMessage={error.name === "plan" ? error.text : ""}
+            isInvalid={error.name === "plan"}
           >
             {plans.map((plan) => (
               <SelectItem key={plan} value={plan}>
@@ -224,28 +286,76 @@ export default async function Home({ params: { lang } }) {
           </Select>
 
           <Input
+            aria-label="company"
             name="company"
             variant="bordered"
             placeholder="نام شرکت / مجموعه"
           />
 
           <Input
+            aria-label="projectName"
             name="projectName"
             variant="bordered"
             placeholder="نام پروژه"
           />
 
           <div className="flex flex-col md:flex-row gap-4">
-            <Input name="country" variant="bordered" placeholder="کشور" />
-            <Input name="state" variant="bordered" placeholder="استان" />
+            <Input
+              aria-label="country"
+              name="country"
+              variant="bordered"
+              placeholder="کشور"
+              errorMessage={error.name === "country" ? error.text : ""}
+              isInvalid={error.name === "country"}
+            />
+            <Input
+              aria-label="state"
+              name="state"
+              variant="bordered"
+              placeholder="استان"
+              errorMessage={error.name === "state" ? error.text : ""}
+              isInvalid={error.name === "state"}
+            />
           </div>
 
-          <Textarea name="message" variant="bordered" placeholder="توضیحات" />
-          <Button className="w-full" color="primary" type="submit">
+          <Textarea
+            aria-label="description"
+            name="description"
+            variant="bordered"
+            placeholder="توضیحات"
+            errorMessage={error.name === "description" ? error.text : ""}
+            isInvalid={error.name === "description"}
+          />
+          <Button
+            className="w-full"
+            color="primary"
+            type="submit"
+            isLoading={isSending}
+          >
             ارسال
           </Button>
         </form>
       </div>
+
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                {modalTitle}
+              </ModalHeader>
+              <ModalBody>
+                <p>{modalText}</p>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onPress={onClose}>
+                  Ok, Thanks
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </PageContainer>
   );
 }
