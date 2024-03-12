@@ -30,6 +30,7 @@ export default async function OrderProject({ params: { lang } }) {
   const dict = await getDictionary(lang);
   const plans = [
     dict.orderProject.mentorship,
+    dict.orderProject.question,
     dict.orderProject.web,
     dict.orderProject.android,
     dict.orderProject.androidAndWeb,

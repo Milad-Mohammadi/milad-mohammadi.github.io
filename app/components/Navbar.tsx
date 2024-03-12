@@ -99,7 +99,7 @@ export const NavbarSection = () => {
 
         <NavbarBrand>
           <Link href={`/${language}`}>
-            <Logo size={46} color="primary" />
+            <Logo size={46} />
           </Link>
         </NavbarBrand>
       </NavbarContent>

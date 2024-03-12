@@ -30,10 +30,12 @@ export const FooterSection = () => {
   return (
     <section className="w-full flex flex-col gap-2">
       <Divider orientation="horizontal" />
-      <div className="px-10 pt-10 pb-10 xl:pb-24 grid place-items-center xl:place-items-start grid-cols-1 xl:grid-cols-3 gap-4">
-        <div className="flex flex-col xl:flex-row gap-2 order-last xl:order-first items-start">
-          <Logo />
-          <div className="flex flex-col">
+      <div className="px-10 pt-10 pb-10 xl:pb-24 grid place-items-center xl:place-items-start grid-cols-1 xl:grid-cols-3 gap-10">
+        <div className="flex flex-col xl:flex-row gap-2 order-last xl:order-first items-start place-items-center xl:place-items-start">
+          <div className="hidden xl:flex">
+            <Logo />
+          </div>
+          <div className="flex flex-col place-items-center xl:place-items-start">
             <span>© 2024</span>
             <span>Design & development by Milad Mohammadi</span>
           </div>

@@ -25,11 +25,9 @@ export default function RootLayout({
         className={`${vazir.className} bg-white dark:bg-black text-onWhite dark:text-onBlack lg:px-10 xl:px-28 2xl:px-80`}
       >
         <Providers>
-          <Suspense fallback={<LoadingLayout />}>
-            <NavbarSection />
-            {children}
-            <FooterSection />
-          </Suspense>
+          <NavbarSection />
+          {children}
+          <FooterSection />
         </Providers>
       </body>
     </html>
