@@ -7,13 +7,7 @@ import TextBody60 from "../components/text/TextBody60";
 import TextTitleMedium from "../components/text/TextTitleMedium";
 import FlippedImage from "../components/image/FlippedImage";
 import { Button, User } from "@nextui-org/react";
-import {
-  GithubSVG,
-  IconArrowDown,
-  IconInstagram,
-  IconStackoverflow,
-  LinkedInSVG,
-} from "../components/icons";
+import { IconArrowDown } from "../components/icons";
 import CardSurface from "../components/container/CardSurface";
 import { IconMultiplatform } from "../components/icons";
 import {
@@ -36,6 +30,10 @@ import {
 } from "../components/icons";
 import Image from "next/image";
 import { ProjectList } from "@/data/en/projectList";
+import { LogoInstagram } from "../components/icons/logo/LogoInstagram";
+import { LogoLinkedin } from "../components/icons/logo/LogoLinkedin";
+import { LogoGithub } from "../components/icons/logo/LogoGithub";
+import { LogoStackoverflow } from "../components/icons/logo/LogoStackoverflow";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -160,7 +158,7 @@ export default async function Home({ params: { lang } }) {
             <TextTitleMedium text={dict.intro.getInTouch} />
             <div className="grid grid-cols-1 gap-5 pt-6">
               <Button className="outline outline-2 outline-primary dark:outline-0">
-                <LinkedInSVG /> @vimilad
+                <LogoLinkedin /> @vimilad
               </Button>
               <Button className="outline outline-2 outline-primary dark:outline-0">
                 Mohammadi.dev@gmail.com
@@ -179,13 +177,13 @@ export default async function Home({ params: { lang } }) {
             <TextTitleMedium text={dict.intro.exploreMyWork} />
             <div className="grid grid-cols-1 gap-5 pt-6">
               <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
-                <GithubSVG /> @Milad-Mohammadi
+                <LogoGithub /> @Milad-Mohammadi
               </Button>
               <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
-                <IconStackoverflow /> @Milad-Mohammadi
+                <LogoStackoverflow /> @Milad-Mohammadi
               </Button>
               <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
-                <IconInstagram /> @vimilad
+                <LogoInstagram /> @vimilad
               </Button>
             </div>
           </div>

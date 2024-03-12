@@ -1,16 +1,17 @@
 import { IconType } from "./IconType";
 
-export const Logo = ({ color, size }: IconType) => {
-  const fillClassName = `fill-${color ? color : "onWhite"} dark:fill-${
-    color ? color : "onBlack"
-  }`;
+export const Logo = ({ color, size, classname }: IconType) => {
+  const onWhiteColor = `fill-${color ? color : "onWhite"}`;
+  const onBlackColor = `dark:fill-${color ? color : "onBlack"}`;
+  const extraClassnames = `${classname ? classname : ""}`;
+  const classnames = `${onWhiteColor} ${onBlackColor} ${extraClassnames}`
 
   return (
     <svg
       width={size ? size : 24}
       viewBox="0 0 92 74"
       fill="none"
-      className={fillClassName}
+      className={classnames}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M36 74H56.2376L73 0H51.7403L36 74Z" />
