@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Divider } from "@nextui-org/react";
 import TextTitleMedium from "./text/TextTitleMedium";
 import TextBody60 from "./text/TextBody60";
+import { Logo } from "./icons/Logo";
 
 export const FooterSection = () => {
   const pathname = usePathname();
@@ -30,8 +31,8 @@ export const FooterSection = () => {
     <section className="w-full flex flex-col gap-2">
       <Divider orientation="horizontal" />
       <div className="px-10 pt-10 pb-10 xl:pb-24 grid place-items-center xl:place-items-start grid-cols-1 xl:grid-cols-3 gap-4">
-        <div className="flex flex-col xl:flex-row gap-2 order-last xl:order-first">
-          LOGO
+        <div className="flex flex-col xl:flex-row gap-2 order-last xl:order-first items-start">
+          <Logo />
           <div className="flex flex-col">
             <span>© 2024</span>
             <span>Design & development by Milad Mohammadi</span>

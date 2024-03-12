@@ -18,7 +18,8 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { getDictionary } from "../[lang]/dictionaries";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import React, { useEffect, useState } from "react";
-import { IconMenu, VimiladLogo } from "./icons";
+import { IconMenu } from "./icons";
+import { Logo } from "./icons/Logo";
 
 interface routeProps {
   label: string;
@@ -98,7 +99,7 @@ export const NavbarSection = () => {
 
         <NavbarBrand>
           <Link href={`/${language}`}>
-            <VimiladLogo />
+            <Logo size={46} color="primary" />
           </Link>
         </NavbarBrand>
       </NavbarContent>
