@@ -3,7 +3,7 @@ import { ProjectType } from "../types/project";
 
 export const ProjectList: ProjectType[] = [
   {
-    logoUrl: "/brand_mpm.jpg",
+    logoUrl: "",
     title: "UniHi",
     subtitle: "Landing page template",
     technologies: [<ReactSVG />, <AndroidSVG />],

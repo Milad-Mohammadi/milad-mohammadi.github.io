@@ -13,7 +13,6 @@ import { LogoLinkedin } from "./icons/logo/LogoLinkedin";
 import { LogoGithub } from "./icons/logo/LogoGithub";
 import { LogoStackoverflow } from "./icons/logo/LogoStackoverflow";
 import { LogoX } from "./icons/LogoX";
-import { useTheme } from "next-themes";
 import { IconEmail } from "./icons/social/IconEmail";
 import { IconPhone } from "./icons/social/IconPhone";
 
@@ -28,7 +27,6 @@ export const FooterSection = () => {
   const socialLogoClassnamesStroke =
     "transition hover:stroke-primary dark:hover:stroke-primary";
   const socialLogoSize = 28;
-  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchDictionaries = async () => {

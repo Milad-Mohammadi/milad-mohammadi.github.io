@@ -34,6 +34,7 @@ import { LogoInstagram } from "../components/icons/logo/LogoInstagram";
 import { LogoLinkedin } from "../components/icons/logo/LogoLinkedin";
 import { LogoGithub } from "../components/icons/logo/LogoGithub";
 import { LogoStackoverflow } from "../components/icons/logo/LogoStackoverflow";
+import { BrandContainer } from "../components/container/BrandContainer";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -253,30 +254,57 @@ export default async function Home({ params: { lang } }) {
       </section>
 
       <section className="w-full my-24 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
-        <TextTitleMedium text="برخی از برندهایی که با آن‌ها همکاری داشته‌ام." />
-        <TextBody60 text="در سال‌های اخیر افتخار این را داشتم که با شرکت‌ها و برندهای داخلی و بین‌المللی بسیاری همکاری داشته باشم که برخی از آن‌ها در لیست زیر قابل مشاهده هستند." />
+        <TextTitleMedium text={dict.brands.brandsTitle} />
+        <TextBody60 text={dict.brands.brandsDescription} />
         <div className="grid grid-cols-3 gap-10 lg:px-10 xl:px-28 2xl:px-0 place-content-center w-full place-items-center mt-4">
-          <Link href={"#"}>
-            <Image width={100} height={100} src={"/brand_realtyna.png"} />
-          </Link>
-          <Link href={"#"}>
-            <Image width={100} height={100} src={"/brand_listings.png"} />
-          </Link>
-          <Link href={"#"}>
-            <Image width={100} height={100} src={"/brand_reveali.png"} />
-          </Link>
-          <Link href={"#"}>
-            <Image width={100} height={100} src={"/brand_ut.png"} />
-          </Link>
-          <Link href={"#"}>
-            <Image width={100} height={100} src={"/brand_cysp.png"} />
-          </Link>
-          <Link href={"#"}>
-            <Image width={100} height={100} src={"/brand_ismvip.png"} />
-          </Link>
-          <Link href={"#"}>
-            <Image width={100} height={100} src={"/brand_mpm.jpg"} />
-          </Link>
+          <BrandContainer
+            src="/brand_realtyna.png"
+            srcDark="/brand_realtyna_dark.png"
+            url="https://realtyna.com"
+            title={dict.brands.realtyna}
+          />
+          <BrandContainer
+            src="/brand_listings.png"
+            srcDark="/brand_listings_dark.png"
+            url="https://listings.com"
+            title={dict.brands.listings}
+          />
+          <BrandContainer
+            src="/brand_reveali.png"
+            srcDark="/brand_reveali_dark.png"
+            url="https://reveali.com"
+            title={dict.brands.reveali}
+          />
+          <BrandContainer
+            src="/brand_ut.png"
+            url="https://ut.ac.ir"
+            title={dict.brands.ut}
+          />
+          <BrandContainer
+            src="/brand_cysp.png"
+            url="https://cysp.ut.ac.ir"
+            title={dict.brands.cysp}
+          />
+          <BrandContainer
+            src="/brand_ismvip.png"
+            url="https://ismvip.ir"
+            title={dict.brands.ismvip}
+          />
+          <BrandContainer
+            src="/brand_ashmore_alexander.png"
+            url="https://ashmorealexander.com"
+            title={dict.brands.ashmoreAlexander}
+          />
+          <BrandContainer
+            src="/brand_urban_acres.png"
+            url="https://urbanacres.com"
+            title={dict.brands.urbanAcres}
+          />
+          <BrandContainer
+            src="/brand_land2legacy.png"
+            url="https://land2legacy.com"
+            title={dict.brands.land2legacy}
+          />
         </div>
       </section>
 

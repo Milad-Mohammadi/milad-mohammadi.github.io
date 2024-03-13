@@ -90,5 +90,18 @@
     "orderProjectError": "سفارش ارسال نشد!",
     "orderProjectErrorDescription": "با عرض معذرت، مشکلی در ارسال درخواست شما به وجود آمد، لطفا مجدد امتحان کنید.",
     "okThanks": "باشه، ممنون"
+  },
+  "brands": {
+    "brandsTitle": "برخی از برندهایی که با آن‌ها همکاری داشته‌ام.",
+    "brandsDescription": "در سال‌های اخیر افتخار این را داشتم که با شرکت‌ها و برندهای داخلی و بین‌المللی بسیاری همکاری داشته باشم که برخی از آن‌ها در لیست زیر قابل مشاهده هستند.",
+    "realtyna": "Realtyna",
+    "listings": "Listings",
+    "reveali": "Reveali",
+    "ut": "دانشگاه تهران",
+    "cysp": "آزمایشگاه پژوهشی فضای سایبر",
+    "ismvip": "انجمن بینایی ماشین و پردازش تصویر ایران",
+    "ashmoreAlexander": "Ashmore Alexander",
+    "urbanAcres": "Urban ACRES",
+    "land2legacy": "Land2Legacy"
   }
 }

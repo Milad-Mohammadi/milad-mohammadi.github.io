@@ -90,5 +90,18 @@
     "orderProjectError": "The order was not sent!",
     "orderProjectErrorDescription": "Sorry, there was a problem submitting your request, please try again.",
     "okThanks": "Ok, Thanks"
+  },
+  "brands": {
+    "brandsTitle": "Some of the brands I have collaborated with.",
+    "brandsDescription": "In recent years, I have had the honor of collaborating with many companies and brands, some of which can be seen in the list below.",
+    "realtyna": "Realtyna",
+    "listings": "Listings",
+    "reveali": "Reveali",
+    "ut": "University of Tehran",
+    "cysp": "Cyber Space Research Laboratory of UT",
+    "ismvip": "Machine Vision and Image Processing Association of Iran",
+    "ashmoreAlexander": "Ashmore Alexander",
+    "urbanAcres": "Urban ACRES",
+    "land2legacy": "Land2Legacy"
   }
 }
