@@ -30,7 +30,8 @@
     "app/components/Navbar.tsx",
     "app/[lang]/layout.jsx",
     "app/components/text/TextHeader.jsx",
-    "app/components/icons/index.jsx"
-, "app/components/container/SocialLinkIcon.tsx"  ],
+    "app/components/icons/index.jsx",
+    "app/components/container/SocialLinkIcon.tsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import PageContainer from "@/app/components/container/PageContainer";
-import TextBody60 from "@/app/components/text/TextBody60";
+import TextBody70 from "@/app/components/text/TextBody70";
 import TextTitleMedium from "@/app/components/text/TextTitleMedium";
 import { ProjectList } from "@/data/en/projectList";
 import { Chip, Image } from "@nextui-org/react";
@@ -67,7 +67,7 @@ export default function Home({ params: { lang } }) {
                   <TextTitleMedium text={item.title} className="mt-4" />
                   {item.technologies}
                 </div>
-                <TextBody60 text={item.subtitle} className="" />
+                <TextBody70 text={item.subtitle} className="" />
               </div>
             </Link>
           </li>

@@ -3,8 +3,10 @@ import { getDictionary } from "./dictionaries";
 import Link from "next/link";
 import TextHeader from "../components/text/TextHeader";
 import TextLabelBold from "../components/text/TextLabelBold";
-import TextBody60 from "../components/text/TextBody60";
+import TextBody70 from "../components/text/TextBody70";
+import TextBody80Medium from "../components/text/TextBody80Medium";
 import TextTitleMedium from "../components/text/TextTitleMedium";
+import TextTitleLarge from "../components/text/TextTitleLarge";
 import FlippedImage from "../components/image/FlippedImage";
 import { Button, User } from "@nextui-org/react";
 import { IconArrowDown } from "../components/icons";
@@ -35,6 +37,7 @@ import { LogoLinkedin } from "../components/icons/logo/LogoLinkedin";
 import { LogoGithub } from "../components/icons/logo/LogoGithub";
 import { LogoStackoverflow } from "../components/icons/logo/LogoStackoverflow";
 import { BrandContainer } from "../components/container/BrandContainer";
+import CommentContainer from "../components/container/commentContainer";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -60,7 +63,7 @@ export default async function Home({ params: { lang } }) {
             <div className="space-y-4">
               <TextLabelBold text={dict.about.name} />
               <TextHeader text={dict.about.title} />
-              <TextBody60 text={dict.about.shortDescription} />
+              <TextBody70 text={dict.about.shortDescription} />
             </div>
             <div className="flex flex-row items-start space-y-0 gap-4">
               <Button href="#" as={Link} className="flex items-center">
@@ -94,11 +97,11 @@ export default async function Home({ params: { lang } }) {
             <div className="flex flex-col sm:flex-row place-items-center sm:place-items-start">
               <div className="flex flex-col w-full p-6 gap-1">
                 <TextTitleMedium text={dict.intro.whatIdo} className="pb-2" />
-                <TextBody60 text={`• ${dict.intro.androidDev}`} />
-                <TextBody60 text={`• ${dict.intro.webDev}`} />
-                <TextBody60 text={`• ${dict.intro.uiDesign}`} />
-                <TextBody60 text={`• ${dict.intro.tvDev}`} />
-                <TextBody60 text={`• ${dict.intro.watchDev}`} />
+                <TextBody70 text={`• ${dict.intro.androidDev}`} />
+                <TextBody70 text={`• ${dict.intro.webDev}`} />
+                <TextBody70 text={`• ${dict.intro.uiDesign}`} />
+                <TextBody70 text={`• ${dict.intro.tvDev}`} />
+                <TextBody70 text={`• ${dict.intro.watchDev}`} />
               </div>
               <IconMultiplatform className="hover:drop-shadow-xl hidden sm:flex" />
             </div>
@@ -110,7 +113,7 @@ export default async function Home({ params: { lang } }) {
         >
           <div className="flex flex-col gap-4 px-6 py-10">
             <TextHeader text={dict.intro.projects} />
-            <TextBody60 text={dict.intro.completedProjects} />
+            <TextBody70 text={dict.intro.completedProjects} />
             <Button color="primary" variant="bordered">
               {dict.intro.viewAll}
             </Button>
@@ -122,7 +125,7 @@ export default async function Home({ params: { lang } }) {
         >
           <div className="flex flex-col gap-4 px-6 py-10">
             <TextHeader text={dict.intro.years} />
-            <TextBody60 text={dict.intro.yearsOfExperience} />
+            <TextBody70 text={dict.intro.yearsOfExperience} />
             <Button color="primary">{dict.intro.downloadResume}</Button>
           </div>
         </CardSurface>
@@ -214,9 +217,9 @@ export default async function Home({ params: { lang } }) {
         </CardSurface>
       </section>
 
-      <section className="w-full my-24 flex flex-col gap-2 place-items-center text-center">
-        <TextTitleMedium text="آخرین پروژه‌ها" />
-        <TextBody60 text="قدرت گرفته از خلاقیت، دقت و کیفیت؛ با استفاده از به‌روزترین تکنولوژی‌های روز دنیا" />
+      <section className="w-full mt-36 flex flex-col gap-2 place-items-center text-center">
+        <TextTitleLarge text="آخرین پروژه‌ها" />
+        <TextBody80Medium text="قدرت گرفته از خلاقیت، دقت و کیفیت؛ با استفاده از به‌روزترین تکنولوژی‌های روز دنیا" />
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20">
           {ProjectList.slice(0, 2).map((project) => (
             <CardSurface
@@ -237,7 +240,7 @@ export default async function Home({ params: { lang } }) {
                   <Image src={project.logoUrl} width={36} height={36} />
                   <TextTitleMedium text={project.title} />
                 </div>
-                <TextBody60 text={project.subtitle} />
+                <TextBody70 text={project.subtitle} />
 
                 <div className="flex flex-row gap-4">
                   {project.technologies}
@@ -253,10 +256,10 @@ export default async function Home({ params: { lang } }) {
         </div>
       </section>
 
-      <section className="w-full my-24 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
-        <TextTitleMedium text={dict.brands.brandsTitle} />
-        <TextBody60 text={dict.brands.brandsDescription} />
-        <div className="grid grid-cols-3 gap-10 lg:px-10 xl:px-28 2xl:px-0 place-content-center w-full place-items-center mt-4">
+      <section className="w-full mt-36 flex flex-col gap-2 place-items-center lg:px-10 xl:px-28 2xl:px-0 2xl:w-1/2 text-center">
+        <TextTitleLarge text={dict.brands.brandsTitle} />
+        <TextBody80Medium text={dict.brands.brandsDescription} />
+        <div className="grid grid-cols-3 gap-10 lg:px-10 xl:px-28 2xl:px-0 place-content-center w-full place-items-center mt-8">
           <BrandContainer
             src="/brand_realtyna.png"
             srcDark="/brand_realtyna_dark.png"
@@ -308,27 +311,74 @@ export default async function Home({ params: { lang } }) {
         </div>
       </section>
 
-      <section className="w-full my-10 flex flex-col gap-2 place-items-center text-center">
-        <TextTitleMedium text="بازخوردها درباره من" />
-        <TextBody60 text="همکاران، مشتریان و عزیزانی که مدتی با هم همکاری داشتیم و متشکر از لطف و محبت آن‌ها هستم." />
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 overflow-hidden relative transition-all w-full mt-4">
-          <div className="absolute bottom-0 left-0 z-10 w-full h-[400px] bg-gradient-to-t from-white via-white/30 dark:from-black dark:via-black/30" />
-          <CardSurface classname="p-4 mb-4 z-0 break-inside-avoid-column">
-            <User
-              name="Jane Doe"
-              description="Product Designer"
-              avatarProps={{
-                src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
-              }}
-            />
-            <TextBody60 text={dict.about.shortDescription} />
-          </CardSurface>
+      <section className="w-full mt-36 flex flex-col gap-2 place-items-center text-center">
+        <TextTitleLarge text={dict.comments.title} />
+        <TextBody80Medium text={dict.comments.description} />
 
-          <div className="absolute flex justify-center bottom-0 left-0 right-0 z-20 mb-10">
-            <Button as={Link} href="#" variant="bordered">
-              Show More
-            </Button>
-          </div>
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 overflow-hidden relative transition-all w-full mt-8">
+          <CommentContainer
+            image="/avatar/kazim_fouladi.jpeg"
+            name={dict.comments.kazimFouladi}
+            title={dict.comments.kazimFouladiTitle}
+            comment={dict.comments.kazimFouladiComment}
+            language={lang}
+          />
+
+          <CommentContainer
+            image="/avatar/yaser_khalfi_nejad.jpeg"
+            name={dict.comments.yaserKhalfiNejad}
+            title={dict.comments.yaserKhalfiNejadTitle}
+            comment={dict.comments.yaserKhalfiNejadComment}
+            language={lang}
+          />
+
+          <CommentContainer
+            image="/avatar/parham_rahimpour.jpeg"
+            name={dict.comments.parhamRahimpour}
+            title={dict.comments.parhamRahimpourTitle}
+            comment={dict.comments.parhamRahimpourComment}
+            language={lang}
+          />
+
+          <CommentContainer
+            image="/avatar/mohammad_seyedi_moadab.jpeg"
+            name={dict.comments.mohammadSeyedi}
+            title={dict.comments.mohammadSeyediTitle}
+            comment={dict.comments.mohammadSeyediComment}
+            language={lang}
+          />
+
+          <CommentContainer
+            image="/avatar/masoud_rajabpour.jpeg"
+            name={dict.comments.masoudRajabpour}
+            title={dict.comments.masoudRajabpourTitle}
+            comment={dict.comments.masoudRajabpourComment}
+            language={lang}
+          />
+
+          <CommentContainer
+            image="/avatar/sina_lakzaei.jpeg"
+            name={dict.comments.sinaLakzaei}
+            title={dict.comments.sinaLakzaeiTitle}
+            comment={dict.comments.sinaLakzaeiComment}
+            language={lang}
+          />
+
+          <CommentContainer
+            image="/avatar/mohammad_fotouhi.jpeg"
+            name={dict.comments.mohammadFotouhi}
+            title={dict.comments.mohammadFotouhiTitle}
+            comment={dict.comments.mohammadFotouhiComment}
+            language={lang}
+          />
+
+          <CommentContainer
+            image="/avatar/behnam_nasehi.jpeg"
+            name={dict.comments.behnamNasehi}
+            title={dict.comments.behnamNasehiTitle}
+            comment={dict.comments.behnamNasehiComment}
+            language={lang}
+          />
         </div>
       </section>
     </PageContainer>

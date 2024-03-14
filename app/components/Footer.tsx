@@ -4,7 +4,7 @@ import { getDictionary } from "../[lang]/dictionaries";
 import React, { useEffect, useState } from "react";
 import { Divider } from "@nextui-org/react";
 import TextTitleMedium from "./text/TextTitleMedium";
-import TextBody60 from "./text/TextBody60";
+import TextBody70 from "./text/TextBody70";
 import { Logo } from "./icons/Logo";
 import Link from "next/link";
 import { SocialLinkIcon } from "./container/SocialLinkIcon";
@@ -46,8 +46,8 @@ export const FooterSection = () => {
       <Divider orientation="horizontal" />
       <div className="py-6 grid place-items-center grid-cols-1 gap-6">
         <div className="flex flex-col order-last items-center text-center">
-          <TextBody60 text="© 2024" className="" />
-          <TextBody60
+          <TextBody70 text="© 2024" className="" />
+          <TextBody70
             text="Design & development by Milad Mohammadi"
             className=""
           />

@@ -16,7 +16,7 @@ import {
 import PageContainer from "@/app/components/container/PageContainer";
 import { getDictionary } from "../dictionaries";
 import TextTitleMedium from "@/app/components/text/TextTitleMedium";
-import TextBody60 from "@/app/components/text/TextBody60";
+import TextBody70 from "@/app/components/text/TextBody70";
 import TextTitleSmall from "@/app/components/text/TextTitleSmall";
 import Link from "next/link";
 import React from "react";
@@ -140,62 +140,62 @@ export default async function OrderProject({ params: { lang } }) {
             text={dict.orderProject.developmentProcess}
             className="my-4"
           />
-          <TextBody60 text={dict.orderProject.developmentProccessDescription} />
+          <TextBody70 text={dict.orderProject.developmentProccessDescription} />
 
           <TextTitleSmall
             text={dict.orderProject.process}
             className="mt-4 mb-1"
           />
           <Link href="#rules">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.rules}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#order">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.receiveOrderProject}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#meeting">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.meeting}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#contract">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.signContract}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#design">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.design}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#development">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.development}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#test">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.finalTest}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#teach">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.teach}`}
               className={menuClassnames}
             />
           </Link>
           <Link href="#finish">
-            <TextBody60
+            <TextBody70
               text={`■ ${dict.orderProject.finalizeProject}`}
               className={menuClassnames}
             />
@@ -203,7 +203,7 @@ export default async function OrderProject({ params: { lang } }) {
 
           <div id="rules" className="pt-16">
             <TextTitleSmall text={dict.orderProject.rules} className="mb-1" />
-            <TextBody60 text={dict.orderProject.rulesDescription} />
+            <TextBody70 text={dict.orderProject.rulesDescription} />
           </div>
 
           <div id="order" className="pt-16">
@@ -211,14 +211,14 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.receiveOrderProject}
               className="mb-1"
             />
-            <TextBody60
+            <TextBody70
               text={dict.orderProject.receiveOrderProjectDescription}
             />
           </div>
 
           <div id="meeting" className="pt-16">
             <TextTitleSmall text={dict.orderProject.meeting} className="mb-1" />
-            <TextBody60 text={dict.orderProject.meetingDescription} />
+            <TextBody70 text={dict.orderProject.meetingDescription} />
           </div>
 
           <div id="contract" className="pt-16">
@@ -226,12 +226,12 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.signContract}
               className="mb-1"
             />
-            <TextBody60 text={dict.orderProject.signContractDescription} />
+            <TextBody70 text={dict.orderProject.signContractDescription} />
           </div>
 
           <div id="design" className="pt-16">
             <TextTitleSmall text={dict.orderProject.design} className="mb-1" />
-            <TextBody60 text={dict.orderProject.designDescription} />
+            <TextBody70 text={dict.orderProject.designDescription} />
           </div>
 
           <div id="development" className="pt-16">
@@ -239,7 +239,7 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.development}
               className="mb-1"
             />
-            <TextBody60 text={dict.orderProject.developmentDescription} />
+            <TextBody70 text={dict.orderProject.developmentDescription} />
           </div>
 
           <div id="test" className="pt-16">
@@ -247,12 +247,12 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.finalTest}
               className="mb-1"
             />
-            <TextBody60 text={dict.orderProject.finalTestDescription} />
+            <TextBody70 text={dict.orderProject.finalTestDescription} />
           </div>
 
           <div id="teach" className="pt-16">
             <TextTitleSmall text={dict.orderProject.teach} className="mb-1" />
-            <TextBody60 text={dict.orderProject.teachDescription} />
+            <TextBody70 text={dict.orderProject.teachDescription} />
           </div>
 
           <div id="finish" className="pt-16">
@@ -260,7 +260,7 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.finalizeProject}
               className="mb-1"
             />
-            <TextBody60 text={dict.orderProject.finalizeProjectDescription} />
+            <TextBody70 text={dict.orderProject.finalizeProjectDescription} />
           </div>
 
           <div id="time" className="pt-20">
@@ -268,7 +268,7 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.timeNeeded}
               className="mb-1"
             />
-            <TextBody60 text={dict.orderProject.timeNeededDescription} />
+            <TextBody70 text={dict.orderProject.timeNeededDescription} />
           </div>
 
           <div id="price">
@@ -276,7 +276,7 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.priceFactors}
               className="mt-4 mb-1"
             />
-            <TextBody60 text={dict.orderProject.priceFactorsDescription} />
+            <TextBody70 text={dict.orderProject.priceFactorsDescription} />
           </div>
 
           <div id="payment">
@@ -284,7 +284,7 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.paymentMethod}
               className="mt-4 mb-1"
             />
-            <TextBody60 text={dict.orderProject.paymentMethodDescription} />
+            <TextBody70 text={dict.orderProject.paymentMethodDescription} />
           </div>
 
           <div id="question">
@@ -292,7 +292,7 @@ export default async function OrderProject({ params: { lang } }) {
               text={dict.orderProject.anyQuestion}
               className="mt-4 mb-1"
             />
-            <TextBody60 text={dict.orderProject.anyQuestionDescription} />
+            <TextBody70 text={dict.orderProject.anyQuestionDescription} />
           </div>
         </ScrollShadow>
         <form className="flex flex-col gap-4 mt-10" onSubmit={onSubmit}>
