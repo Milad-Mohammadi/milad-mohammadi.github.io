@@ -261,50 +261,50 @@ export default async function Home({ params: { lang } }) {
         <TextBody80Medium text={dict.brands.brandsDescription} />
         <div className="grid grid-cols-3 gap-10 lg:px-10 xl:px-28 2xl:px-0 place-content-center w-full place-items-center mt-8">
           <BrandContainer
-            src="/brand_realtyna.png"
-            srcDark="/brand_realtyna_dark.png"
+            src="/brand/realtyna.png"
+            srcDark="/brand/realtyna_dark.png"
             url="https://realtyna.com"
             title={dict.brands.realtyna}
           />
           <BrandContainer
-            src="/brand_listings.png"
-            srcDark="/brand_listings_dark.png"
+            src="/brand/listings.png"
+            srcDark="/brand/listings_dark.png"
             url="https://listings.com"
             title={dict.brands.listings}
           />
           <BrandContainer
-            src="/brand_reveali.png"
-            srcDark="/brand_reveali_dark.png"
+            src="/brand/reveali.png"
+            srcDark="/brand/reveali_dark.png"
             url="https://reveali.com"
             title={dict.brands.reveali}
           />
           <BrandContainer
-            src="/brand_ut.png"
+            src="/brand/ut.png"
             url="https://ut.ac.ir"
             title={dict.brands.ut}
           />
           <BrandContainer
-            src="/brand_cysp.png"
+            src="/brand/cysp.png"
             url="https://cysp.ut.ac.ir"
             title={dict.brands.cysp}
           />
           <BrandContainer
-            src="/brand_ismvip.png"
+            src="/brand/ismvip.png"
             url="https://ismvip.ir"
             title={dict.brands.ismvip}
           />
           <BrandContainer
-            src="/brand_ashmore_alexander.png"
+            src="/brand/ashmore_alexander.png"
             url="https://ashmorealexander.com"
             title={dict.brands.ashmoreAlexander}
           />
           <BrandContainer
-            src="/brand_urban_acres.png"
+            src="/brand/urban_acres.png"
             url="https://urbanacres.com"
             title={dict.brands.urbanAcres}
           />
           <BrandContainer
-            src="/brand_land2legacy.png"
+            src="/brand/land2legacy.png"
             url="https://land2legacy.com"
             title={dict.brands.land2legacy}
           />

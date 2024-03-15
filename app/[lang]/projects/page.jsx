@@ -4,21 +4,23 @@ import PageContainer from "@/app/components/container/PageContainer";
 import TextBody70 from "@/app/components/text/TextBody70";
 import TextTitleMedium from "@/app/components/text/TextTitleMedium";
 import { ProjectList } from "@/data/en/projectList";
+import { ProjectListFa } from "@/data/fa/projectList";
 import { Chip, Image } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Home({ params: { lang } }) {
   const allProjects = lang === "fa" ? "همه" : "All";
+  const projects = lang == "en" ? ProjectList : ProjectListFa;
   const uniqueCategories = [
-    ...new Set(ProjectList.map((item) => item.category)),
+    ...new Set(projects.map((item) => item.category)),
   ];
   const [selectedCategory, setSelectedCategory] = useState(allProjects);
   const filterItemsByCategory = (selectedCategory) => {
     if (selectedCategory === allProjects) {
-      return ProjectList;
+      return projects;
     } else {
-      return ProjectList.filter((item) => item.category === selectedCategory);
+      return projects.filter((item) => item.category === selectedCategory);
     }
   };
 
