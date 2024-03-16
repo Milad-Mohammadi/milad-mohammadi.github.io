@@ -1,20 +1,37 @@
 "use client";
 
 import PageContainer from "@/app/components/container/PageContainer";
+import { IconClose } from "@/app/components/icons/common/IconClose";
+import { IconDate } from "@/app/components/icons/common/IconDate";
+import { IconHandshake } from "@/app/components/icons/common/IconHandshake";
+import { IconWebsite } from "@/app/components/icons/common/IconWebsite";
+import { LogoGithub } from "@/app/components/icons/logo/LogoGithub";
 import TextBody70 from "@/app/components/text/TextBody70";
 import TextTitleMedium from "@/app/components/text/TextTitleMedium";
+import TextTitleSmall from "@/app/components/text/TextTitleSmall";
 import { ProjectList } from "@/data/en/projectList";
 import { ProjectListFa } from "@/data/fa/projectList";
-import { Chip, Image } from "@nextui-org/react";
+import {
+  Chip,
+  Image,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+  modal,
+} from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Home({ params: { lang } }) {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [modalData, setModalData] = useState(null);
   const allProjects = lang === "fa" ? "همه" : "All";
   const projects = lang == "en" ? ProjectList : ProjectListFa;
-  const uniqueCategories = [
-    ...new Set(projects.map((item) => item.category)),
-  ];
+  const uniqueCategories = [...new Set(projects.map((item) => item.category))];
   const [selectedCategory, setSelectedCategory] = useState(allProjects);
   const filterItemsByCategory = (selectedCategory) => {
     if (selectedCategory === allProjects) {
@@ -22,6 +39,11 @@ export default function Home({ params: { lang } }) {
     } else {
       return projects.filter((item) => item.category === selectedCategory);
     }
+  };
+
+  const showDetails = (item) => {
+    setModalData(item);
+    onOpen();
   };
 
   return (
@@ -61,20 +83,107 @@ export default function Home({ params: { lang } }) {
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
         {filterItemsByCategory(selectedCategory).map((item) => (
-          <li key={item.id}>
-            <Link href={item.websiteUrl}>
-              <div className="flex flex-col p-4 border rounded-lg	border-1 border-white dark:border-black hover:border-black/20 dark:hover:border-white/20 hover:border-1 hover:bg-black/5 dark:hover:bg-white/5 w-fit">
-                <Image src={item.banner} width={300} height={300} />
-                <div className="flex flex-row gap-2">
-                  <TextTitleMedium text={item.title} className="mt-4" />
-                  {item.technologies}
-                </div>
-                <TextBody70 text={item.subtitle} className="" />
+          <div onClick={() => showDetails(item)} key={item.id}>
+            <div className="flex flex-col p-4 border rounded-lg	border-1 border-white dark:border-black hover:border-black/20 dark:hover:border-white/20 hover:border-1 hover:bg-black/5 dark:hover:bg-white/5 w-fit cursor-pointer">
+              <Image src={item.banner} width={300} height={300} />
+              <div className="flex flex-row gap-2 place-items-center">
+                <TextTitleMedium text={item.title} className="mt-2" />
+                {item.technologies}
               </div>
-            </Link>
-          </li>
+              <TextBody70 text={item.subtitle} className="" />
+            </div>
+          </div>
         ))}
       </ul>
+
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        size="xl"
+        backdrop="blur"
+        classNames={{
+          header: "flex justify-center p-0",
+          body: "gap-0",
+        }}
+        hideCloseButton
+        scrollBehavior="outside"
+        dir={lang === "fa" ? "rtl" : "ltr"}
+      >
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader>
+                <div className="relative">
+                  <Image
+                    src={modalData.banner}
+                    width="100%"
+                    className="object-cover"
+                    style={{ zIndex: 0 }}
+                  />
+
+                  <div className="flex justify-end gap-2 absolute top-0 left-0 right-0 p-4">
+                    <Button
+                      onPress={onClose}
+                      size="sm"
+                      isIconOnly
+                      className="rounded-full"
+                    >
+                      <IconClose size={16} />
+                    </Button>
+                  </div>
+
+                  <div className="flex flex-row absolute bottom-0 left-0 right-0 p-4">
+                    {modalData.websiteUrl !== "" && (
+                      <Button
+                        onPress={onClose}
+                        as={Link}
+                        href={modalData.websiteUrl}
+                        size="lg"
+                        target="_blank"
+                        isIconOnly
+                        className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
+                      >
+                        <IconWebsite size={36} />
+                      </Button>
+                    )}
+                    {modalData.githubUrl !== "" && (
+                      <Button
+                        onPress={onClose}
+                        as={Link}
+                        href={modalData.githubUrl}
+                        size="lg"
+                        target="_blank"
+                        isIconOnly
+                        className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
+                      >
+                        <LogoGithub size={36} />
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </ModalHeader>
+              <ModalBody>
+                <div className="flex flex-row gap-2 my-2">
+                  <TextTitleSmall text={modalData.title} />
+                  {modalData.technologies}
+                </div>
+
+                <div className="flex flex-row gap-1 items-center">
+                  <IconDate /> <TextBody70 text={modalData.date} />
+                </div>
+
+                {modalData.client !== "" && (
+                  <div className="flex flex-row gap-1 items-center">
+                    <IconHandshake /> <TextBody70 text={modalData.client} />
+                  </div>
+                )}
+
+                <TextBody70 text={modalData.description} className="my-4" />
+              </ModalBody>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </PageContainer>
   );
 }

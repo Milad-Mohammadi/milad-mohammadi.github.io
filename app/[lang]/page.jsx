@@ -379,6 +379,14 @@ export default async function Home({ params: { lang } }) {
             comment={dict.comments.behnamNasehiComment}
             language={lang}
           />
+
+          <CommentContainer
+            image="/avatar/shahin_ilderemi.jpeg"
+            name={dict.comments.shahinIlderemi}
+            title={dict.comments.shahinIlderemiTitle}
+            comment={dict.comments.shahinIlderemiComment}
+            language={lang}
+          />
         </div>
       </section>
     </PageContainer>
