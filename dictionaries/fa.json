@@ -20,8 +20,9 @@
   "intro": {
     "years": "+۸",
     "yearsOfExperience": "سال تجربه",
-    "downloadResume": "دانلود رزومه",
-    "projects": "+۲۰",
+    "viewResume": "مشاهده رزومه",
+    "resumeUrl": "https://docs.google.com/document/d/1zF-zNF1HXpAEJdDdUOiaJ01ya_zExmV7c-6QuApmPO8/edit?usp=sharing",
+    "projects": "+۱۷",
     "completedProjects": "پروژه تکمیل شده",
     "viewAll": "مشاهده همه",
     "whatIdo": "خدمات من",
@@ -134,5 +135,13 @@
     "shahinIlderemi": "شاهین ایلدرمی",
     "shahinIlderemiTitle": "توسعه‌دهنده ارشد PHP و Node JS",
     "shahinIlderemiComment": "من میلاد را به عنوان یک مهندس نرم افزار با استعداد و متخصص در توسعه اندروید به شدت توصیه می‌کنم. تخصص او در این زمینه چشمگیر است، و او به طور مداوم کیفیت کار خود را بالا می‌برد. توجه میلاد به جزئیات و مهارت‌های حل مسئله او را به یک دارایی ارزشمند برای هر تیمی تبدیل می‌کند. او یک حرفه‌ای متعهد است که همیشه به تعهدات خود عمل کرده و حتی فراتر از انتظارات است."
+  },
+  "footer": {
+    "copyright": "© ۱۴۰۳",
+    "designAndDevBy": "طراحی و توسعه توسط"
+  },
+  "latestProjects": {
+    "title": "آخرین پروژه‌ها",
+    "description": "قدرت گرفته از خلاقیت، دقت و کیفیت؛ با استفاده از به‌روزترین تکنولوژی‌های روز دنیا"
   }
 }

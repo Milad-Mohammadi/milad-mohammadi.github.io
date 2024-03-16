@@ -1,3 +1,4 @@
+"use client";
 import PageContainer from "../components/container/PageContainer";
 import { getDictionary } from "./dictionaries";
 import Link from "next/link";
@@ -8,10 +9,11 @@ import TextBody80Medium from "../components/text/TextBody80Medium";
 import TextTitleMedium from "../components/text/TextTitleMedium";
 import TextTitleLarge from "../components/text/TextTitleLarge";
 import FlippedImage from "../components/image/FlippedImage";
-import { Button, User } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import { IconArrowDown } from "../components/icons";
 import CardSurface from "../components/container/CardSurface";
 import { IconMultiplatform } from "../components/icons";
+import { constants } from "../../data/Constants";
 import {
   AndroidSVG,
   ExpressSVG,
@@ -38,10 +40,22 @@ import { LogoGithub } from "../components/icons/logo/LogoGithub";
 import { LogoStackoverflow } from "../components/icons/logo/LogoStackoverflow";
 import { BrandContainer } from "../components/container/BrandContainer";
 import CommentContainer from "../components/container/commentContainer";
+import { IconEmail } from "../components/icons/social/IconEmail";
+import { IconPhone } from "../components/icons/social/IconPhone";
+import { IconWebsite } from "../components/icons/common/IconWebsite";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
   const isRtl = lang.includes("fa");
+
+  const scrolltoSummary = () => {
+    const element = document.getElementById("summary");
+    element?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
 
   return (
     <PageContainer language={lang}>
@@ -66,14 +80,19 @@ export default async function Home({ params: { lang } }) {
               <TextBody70 text={dict.about.shortDescription} />
             </div>
             <div className="flex flex-row items-start space-y-0 gap-4">
-              <Button href="#" as={Link} className="flex items-center">
+              <Button className="flex items-center" onClick={scrolltoSummary}>
                 {dict.about.readAboutMe}
                 <div className="animate-bounce">
                   <IconArrowDown />
                 </div>
               </Button>
-              <Button href="#" as={Link} variant="bordered">
-                {dict.about.projects}
+              <Button
+                href={dict.intro.resumeUrl}
+                as={Link}
+                variant="bordered"
+                target="_blank"
+              >
+                {dict.intro.viewResume}
               </Button>
             </div>
           </div>
@@ -91,21 +110,22 @@ export default async function Home({ params: { lang } }) {
         </div>
       </section>
 
-      <section className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 pt-10">
+      <section
+        className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 pt-24"
+        id="summary"
+      >
         <CardSurface language={lang} classname="md:col-span-2">
-          <Link href={"#"}>
-            <div className="flex flex-col sm:flex-row place-items-center sm:place-items-start">
-              <div className="flex flex-col w-full p-6 gap-1">
-                <TextTitleMedium text={dict.intro.whatIdo} className="pb-2" />
-                <TextBody70 text={`• ${dict.intro.androidDev}`} />
-                <TextBody70 text={`• ${dict.intro.webDev}`} />
-                <TextBody70 text={`• ${dict.intro.uiDesign}`} />
-                <TextBody70 text={`• ${dict.intro.tvDev}`} />
-                <TextBody70 text={`• ${dict.intro.watchDev}`} />
-              </div>
-              <IconMultiplatform className="hover:drop-shadow-xl hidden sm:flex" />
+          <div className="flex flex-col sm:flex-row place-items-center sm:place-items-start">
+            <div className="flex flex-col w-full p-6 gap-1">
+              <TextTitleMedium text={dict.intro.whatIdo} className="pb-2" />
+              <TextBody70 text={`• ${dict.intro.androidDev}`} />
+              <TextBody70 text={`• ${dict.intro.webDev}`} />
+              <TextBody70 text={`• ${dict.intro.uiDesign}`} />
+              <TextBody70 text={`• ${dict.intro.tvDev}`} />
+              <TextBody70 text={`• ${dict.intro.watchDev}`} />
             </div>
-          </Link>
+            <IconMultiplatform className="hover:drop-shadow-xl hidden sm:flex" />
+          </div>
         </CardSurface>
         <CardSurface
           language={lang}
@@ -114,7 +134,12 @@ export default async function Home({ params: { lang } }) {
           <div className="flex flex-col gap-4 px-6 py-10">
             <TextHeader text={dict.intro.projects} />
             <TextBody70 text={dict.intro.completedProjects} />
-            <Button color="primary" variant="bordered">
+            <Button
+              color="primary"
+              variant="bordered"
+              as={Link}
+              href={`${lang}/projects`}
+            >
               {dict.intro.viewAll}
             </Button>
           </div>
@@ -126,7 +151,14 @@ export default async function Home({ params: { lang } }) {
           <div className="flex flex-col gap-4 px-6 py-10">
             <TextHeader text={dict.intro.years} />
             <TextBody70 text={dict.intro.yearsOfExperience} />
-            <Button color="primary">{dict.intro.downloadResume}</Button>
+            <Button
+              color="primary"
+              href={dict.intro.resumeUrl}
+              as={Link}
+              target="_blank"
+            >
+              {dict.intro.viewResume}
+            </Button>
           </div>
         </CardSurface>
 
@@ -161,13 +193,28 @@ export default async function Home({ params: { lang } }) {
           <div className="flex flex-col p-6 place-items-center">
             <TextTitleMedium text={dict.intro.getInTouch} />
             <div className="grid grid-cols-1 gap-5 pt-6">
-              <Button className="outline outline-2 outline-primary dark:outline-0">
-                <LogoLinkedin /> @vimilad
+              <Button
+                className="outline outline-2 outline-primary dark:outline-0"
+                as={Link}
+                href={constants.linkedin}
+                startContent={<LogoLinkedin size={20} />}
+              >
+                @vimilad
               </Button>
-              <Button className="outline outline-2 outline-primary dark:outline-0">
+              <Button
+                className="outline outline-2 outline-primary dark:outline-0"
+                as={Link}
+                href={constants.email}
+                startContent={<IconEmail size={20} />}
+              >
                 Mohammadi.dev@gmail.com
               </Button>
-              <Button className="outline outline-2 outline-primary dark:outline-0">
+              <Button
+                className="outline outline-2 outline-primary dark:outline-0"
+                as={Link}
+                href={constants.phone}
+                startContent={<IconPhone size={20} />}
+              >
                 {dict.intro.phone}
               </Button>
             </div>
@@ -180,14 +227,29 @@ export default async function Home({ params: { lang } }) {
           <div className="flex flex-col p-6 place-items-center">
             <TextTitleMedium text={dict.intro.exploreMyWork} />
             <div className="grid grid-cols-1 gap-5 pt-6">
-              <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
-                <LogoGithub /> @Milad-Mohammadi
+              <Button
+                className="flex items-center outline outline-2 outline-primary dark:outline-0"
+                as={Link}
+                href={constants.github}
+                startContent={<LogoGithub size={20} />}
+              >
+                @Milad-Mohammadi
               </Button>
-              <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
-                <LogoStackoverflow /> @Milad-Mohammadi
+              <Button
+                className="flex items-center outline outline-2 outline-primary dark:outline-0"
+                as={Link}
+                href={constants.stackoverflow}
+                startContent={<LogoStackoverflow size={20} />}
+              >
+                @Milad-Mohammadi
               </Button>
-              <Button className="flex items-center outline outline-2 outline-primary dark:outline-0">
-                <LogoInstagram /> @vimilad
+              <Button
+                className="flex items-center outline outline-2 outline-primary dark:outline-0"
+                as={Link}
+                href={constants.instagram}
+                startContent={<LogoInstagram size={20} />}
+              >
+                @vimilad
               </Button>
             </div>
           </div>
@@ -217,38 +279,58 @@ export default async function Home({ params: { lang } }) {
         </CardSurface>
       </section>
 
-      <section className="w-full mt-36 flex flex-col gap-2 place-items-center text-center">
-        <TextTitleLarge text="آخرین پروژه‌ها" />
-        <TextBody80Medium text="قدرت گرفته از خلاقیت، دقت و کیفیت؛ با استفاده از به‌روزترین تکنولوژی‌های روز دنیا" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20">
+      <section className="w-full mt-36 flex flex-col gap-2 place-items-center">
+        <TextTitleLarge text={dict.latestProjects.title} />
+        <TextBody80Medium text={dict.latestProjects.description} />
+        <div className="grid grid-cols-1 lg:grid-cols-2  mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20 place-content-center">
           {ProjectList.slice(0, 2).map((project) => (
             <CardSurface
-              classname="flex flex-col md:flex-row place-items-center md:place-items-end"
+              classname="w-fit relative overflow-hidden"
               language={lang}
             >
-              <div className="flex-auto w-full md:w-1/2">
-                <Image
-                  src={project.banner}
-                  width={550}
-                  height={550}
-                  className="bottom-0 overflow-hidden"
-                />
-              </div>
+              <div className="absolute bottom-0 left-0 z-0 w-full h-[400px] bg-gradient-to-t from-white via-white/30 dark:from-black dark:via-black/30" />
 
-              <div className="w-full md:w-1/2 flex flex-col justify-between p-4 text-start gap-4">
-                <div className="flex flex-row place-items-center gap-2">
-                  <Image src={project.logoUrl} width={36} height={36} />
-                  <TextTitleMedium text={project.title} />
-                </div>
-                <TextBody70 text={project.subtitle} />
+              <Image
+                src={project.banner}
+                width={600}
+                height={600}
+                className="object-cover bottom-0"
+              />
 
-                <div className="flex flex-row gap-4">
-                  {project.technologies}
+              <div className="flex flex-row justify-between absolute bottom-0 left-0 right-0 p-4">
+                <div className="flex flex-col gap-2">
+                  <TextTitleLarge text={project.title} />
+                  <TextBody70 text={project.subtitle} />
+                  <div className="flex flex-row gap-4">
+                    {project.technologies}
+                  </div>
                 </div>
 
-                <div className="flex flex-row gap-2 self-end">
-                  <Button>Detail</Button>
-                  <Button>View</Button>
+                <div className="flex flex-row">
+                  {project.websiteUrl !== "" && (
+                    <Button
+                      as={Link}
+                      href={project.websiteUrl}
+                      size="lg"
+                      target="_blank"
+                      isIconOnly
+                      className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
+                    >
+                      <IconWebsite size={36} />
+                    </Button>
+                  )}
+                  {project.githubUrl !== "" && (
+                    <Button
+                      as={Link}
+                      href={project.githubUrl}
+                      size="lg"
+                      target="_blank"
+                      isIconOnly
+                      className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
+                    >
+                      <LogoGithub size={36} />
+                    </Button>
+                  )}
                 </div>
               </div>
             </CardSurface>

@@ -20,8 +20,9 @@
   "intro": {
     "years": "8+",
     "yearsOfExperience": "Years of Experience",
-    "downloadResume": "Download Resume",
-    "projects": "20+",
+    "viewResume": "View Resume",
+    "resumeUrl": "https://docs.google.com/document/d/1NA4__B-I7oEyKBX1ijRla5xVGLkWCevLVJTB1CzDODY/edit?usp=sharing",
+    "projects": "17+",
     "completedProjects": "Completed Projects",
     "viewAll": "View All",
     "whatIdo": "What I Do?",
@@ -135,5 +136,12 @@
     "shahinIlderemiTitle": "Senior PHP and Node.js Developer",
     "shahinIlderemiComment": "I highly recommend Milad as a talented software engineer specializing in Android development. His expertise in the field is impressive, and he consistently delivers high-quality work. Milad's attention to detail and problem-solving skills make him a valuable asset to any team. He is a dedicated professional who consistently meets deadlines and exceeds expectations."
   },
-  "projects": {}
+  "footer": {
+    "copyright": "© 2024",
+    "designAndDevBy": "Design & development by"
+  },
+  "latestProjects": {
+    "title": "Latest Projects",
+    "description": "Powered by creativity, precision, and quality; Using the latest technologies in the world"
+  }
 }

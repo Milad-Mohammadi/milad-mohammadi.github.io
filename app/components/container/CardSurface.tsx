@@ -15,7 +15,7 @@ const CardSurface: React.FC<CardSurfaceProps> = ({
   return (
     <div
       dir={direction}
-      className={`bg-whiteSurface dark:bg-blackSurface rounded-lg border border-silver dark:border-0 shadow-md ${classname}`}
+      className={`bg-whiteSurface dark:bg-blackSurface rounded-xl border border-silver dark:border-0 shadow-md ${classname}`}
     >
       {children}
     </div>

@@ -3,10 +3,7 @@ import { usePathname } from "next/navigation";
 import { getDictionary } from "../[lang]/dictionaries";
 import React, { useEffect, useState } from "react";
 import { Divider } from "@nextui-org/react";
-import TextTitleMedium from "./text/TextTitleMedium";
 import TextBody70 from "./text/TextBody70";
-import { Logo } from "./icons/Logo";
-import Link from "next/link";
 import { SocialLinkIcon } from "./container/SocialLinkIcon";
 import { LogoInstagram } from "./icons/logo/LogoInstagram";
 import { LogoLinkedin } from "./icons/logo/LogoLinkedin";
@@ -15,12 +12,14 @@ import { LogoStackoverflow } from "./icons/logo/LogoStackoverflow";
 import { LogoX } from "./icons/LogoX";
 import { IconEmail } from "./icons/social/IconEmail";
 import { IconPhone } from "./icons/social/IconPhone";
+import { constants } from "../../data/Constants";
+import Link from "next/link";
 
 export const FooterSection = () => {
   const pathname = usePathname();
   const pathnameSegments = pathname.split("/");
   const language = pathnameSegments[1];
-  const [dict, setDict] = useState(null);
+  const [dict, setDict] = useState();
   const direction = language === "en" ? "ltr" : "rtl";
   const socialLogoClassnames =
     "transition hover:fill-primary dark:hover:fill-primary";
@@ -42,15 +41,24 @@ export const FooterSection = () => {
   }, [language]);
 
   return (
-    <section className="w-full" dir={direction}>
+    <section className="w-full mt-16" dir={direction}>
       <Divider orientation="horizontal" />
       <div className="py-6 grid place-items-center grid-cols-1 gap-6">
         <div className="flex flex-col order-last items-center text-center">
-          <TextBody70 text="© 2024" className="" />
-          <TextBody70
-            text="Design & development by Milad Mohammadi"
-            className=""
-          />
+          <TextBody70 text={dict ? dict.footer.copyright : ""} className="" />
+          <div className="flex flex-row gap-1">
+            <TextBody70
+              text={dict ? dict.footer.designAndDevBy : ""}
+              className=""
+            />
+
+            <Link href={`${language}/`}>
+              <TextBody70
+                text={dict ? dict.about.name : ""}
+                className="font-bold hover:text-primary transition"
+              />
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-row gap-4">
@@ -61,7 +69,7 @@ export const FooterSection = () => {
                 classname={socialLogoClassnamesStroke}
               />
             }
-            url="tel:+989352112040"
+            url={constants.phone}
           />
 
           <SocialLinkIcon
@@ -71,7 +79,7 @@ export const FooterSection = () => {
                 classname={socialLogoClassnames}
               />
             }
-            url="@"
+            url={constants.email}
           />
           <SocialLinkIcon
             icon={
@@ -80,7 +88,7 @@ export const FooterSection = () => {
                 classname={socialLogoClassnames}
               />
             }
-            url="@"
+            url={constants.instagram}
           />
           <SocialLinkIcon
             icon={
@@ -89,7 +97,7 @@ export const FooterSection = () => {
                 classname={socialLogoClassnames}
               />
             }
-            url="@"
+            url={constants.linkedin}
           />
           <SocialLinkIcon
             icon={
@@ -98,7 +106,7 @@ export const FooterSection = () => {
                 classname={socialLogoClassnames}
               />
             }
-            url="@"
+            url={constants.github}
           />
           <SocialLinkIcon
             icon={
@@ -107,13 +115,13 @@ export const FooterSection = () => {
                 classname={socialLogoClassnames}
               />
             }
-            url="@"
+            url={constants.stackoverflow}
           />
           <SocialLinkIcon
             icon={
               <LogoX size={socialLogoSize} classname={socialLogoClassnames} />
             }
-            url="@"
+            url={constants.x}
           />
         </div>
       </div>
