@@ -11,8 +11,8 @@
   },
   "notFound": {
     "title": "Page Not Found | 404",
-    "description": "Are you lost baby girl?",
-    "backToHome": "Back to My Story"
+    "description": "There is nothing here!",
+    "backToHome": "Back to Home"
   },
   "about": {
     "name": "Milad Mohammadi",

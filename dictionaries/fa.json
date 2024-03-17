@@ -11,8 +11,8 @@
   },
   "notFound": {
     "title": "صفحه پیدا نشد | 404",
-    "description": "مثل اینکه گم شدی!",
-    "backToHome": "به داستان من برگرد"
+    "description": "اینجا چیزی نیست!",
+    "backToHome": "برو به صفحه اصلی"
   },
   "about": {
     "name": "میلاد محمدی",

@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextTitleMedium = ({ text, className }) => {
+const TextTitleLarge = ({ text, className }) => {
   return (
     <h1 className={`text-2xl font-bold md:text-3xl lg:text-4xl ${className}`}>
       {text}
@@ -8,4 +8,4 @@ const TextTitleMedium = ({ text, className }) => {
   );
 };
 
-export default TextTitleMedium;
+export default TextTitleLarge;
