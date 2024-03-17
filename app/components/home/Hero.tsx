@@ -6,7 +6,7 @@ import TextLabelBold from "../text/TextLabelBold";
 import TextHeader from "../text/TextHeader";
 import TextBody70 from "../text/TextBody70";
 import { Button } from "@nextui-org/react";
-import { IconArrowDown } from "../icons";
+import { IconArrowDown } from "../icons/common/IconArrowDown";
 import Link from "next/link";
 
 type HeroProps = {

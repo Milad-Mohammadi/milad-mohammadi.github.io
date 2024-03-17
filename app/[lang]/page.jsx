@@ -8,26 +8,7 @@ import TextTitleMedium from "../components/text/TextTitleMedium";
 import TextTitleLarge from "../components/text/TextTitleLarge";
 import { Button } from "@nextui-org/react";
 import CardSurface from "../components/container/CardSurface";
-import { IconMultiplatform } from "../components/icons";
 import { constants } from "../../data/Constants";
-import {
-  AndroidSVG,
-  ExpressSVG,
-  FigmaSVG,
-  JavaSVG,
-  JavascriptSVG,
-  JetpackComposeSVG,
-  KotlinSVG,
-  MongoDBSVG,
-  MySqlSVG,
-  NextJsSVG,
-  NextUISVG,
-  ReactSVG,
-  ShadcnSVG,
-  SqliteSVG,
-  TailwindSVG,
-  TypescriptSVG,
-} from "../components/icons";
 import Image from "next/image";
 import { ProjectList } from "@/data/en/projectList";
 import { LogoInstagram } from "../components/icons/logo/LogoInstagram";
@@ -40,9 +21,28 @@ import { IconEmail } from "../components/icons/social/IconEmail";
 import { IconPhone } from "../components/icons/social/IconPhone";
 import { IconWebsite } from "../components/icons/common/IconWebsite";
 import { Hero } from "../components/home/Hero";
+import { IconAndroid } from "../components/icons/technologies/IconAndroid";
+import { IconMultiplatform } from "../components/icons/common/IconMultiplatform";
+import { IconKotlin } from "../components/icons/technologies/IconKotlin";
+import { IconJava } from "../components/icons/technologies/IconJava";
+import { IconJetpackCompose } from "../components/icons/technologies/IconJetpackCompose";
+import { IconJavaScript } from "../components/icons/technologies/IconJavaScript";
+import { IconTypeScript } from "../components/icons/technologies/IconTypeScript";
+import { IconReact } from "../components/icons/technologies/IconReact";
+import { IconNextJs } from "../components/icons/technologies/IconNextJs";
+import { IconTailwind } from "../components/icons/technologies/IconTailwind";
+import { IconNextUi } from "../components/icons/technologies/IconNextUi";
+import { IconShadcn } from "../components/icons/technologies/IconShadcn";
+import { IconExpress } from "../components/icons/technologies/IconExpress";
+import { IconMongoDb } from "../components/icons/technologies/IconMongoDb";
+import { IconSqlite } from "../components/icons/technologies/IconSqlite";
+import { IconMySql } from "../components/icons/technologies/IconMySql";
+import { IconFigma } from "../components/icons/technologies/IconFigma";
+import { ProjectListFa } from "@/data/fa/projectList";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
+  const projects = lang == "en" ? ProjectList : ProjectListFa;
 
   return (
     <PageContainer language={lang}>
@@ -104,22 +104,22 @@ export default async function Home({ params: { lang } }) {
           <div className="flex flex-col p-6 place-items-center md:place-items-start">
             <TextTitleMedium text={dict.intro.mySkills} />
             <div className="grid grid-cols-5 gap-10 py-6 place-content-center w-full place-items-center">
-              <AndroidSVG />
-              <KotlinSVG />
-              <JavaSVG />
-              <JetpackComposeSVG />
-              <JavascriptSVG />
-              <TypescriptSVG />
-              <ReactSVG />
-              <NextJsSVG />
-              <TailwindSVG />
-              <NextUISVG />
-              <ShadcnSVG />
-              <ExpressSVG />
-              <MongoDBSVG />
-              <SqliteSVG />
-              <MySqlSVG />
-              <FigmaSVG />
+              <IconAndroid size={30} />
+              <IconKotlin size={30} />
+              <IconJava size={30} />
+              <IconJetpackCompose size={30} />
+              <IconJavaScript size={30} />
+              <IconTypeScript size={30} />
+              <IconReact size={30} />
+              <IconNextJs size={30} />
+              <IconTailwind size={30} />
+              <IconNextUi size={30} />
+              <IconShadcn size={30} />
+              <IconExpress size={30} />
+              <IconMongoDb size={30} />
+              <IconSqlite size={30} />
+              <IconMySql size={30} />
+              <IconFigma size={30} />
             </div>
           </div>
         </CardSurface>
@@ -196,22 +196,22 @@ export default async function Home({ params: { lang } }) {
           <div className="flex flex-col p-6 place-items-center md:place-items-start">
             <TextTitleMedium text={dict.intro.mySkills} />
             <div className="grid grid-cols-6 gap-10 py-6 place-content-center w-full place-items-center">
-              <AndroidSVG />
-              <KotlinSVG />
-              <JavaSVG />
-              <JetpackComposeSVG />
-              <JavascriptSVG />
-              <TypescriptSVG />
-              <ReactSVG />
-              <NextJsSVG />
-              <TailwindSVG />
-              <NextUISVG />
-              <ShadcnSVG />
-              <ExpressSVG />
-              <MongoDBSVG />
-              <SqliteSVG />
-              <MySqlSVG />
-              <FigmaSVG />
+              <IconAndroid size={30} />
+              <IconKotlin size={30} />
+              <IconJava size={30} />
+              <IconJetpackCompose size={30} />
+              <IconJavaScript size={30} />
+              <IconTypeScript size={30} />
+              <IconReact size={30} />
+              <IconNextJs size={30} />
+              <IconTailwind size={30} />
+              <IconNextUi size={30} />
+              <IconShadcn size={30} />
+              <IconExpress size={30} />
+              <IconMongoDb size={30} />
+              <IconSqlite size={30} />
+              <IconMySql size={30} />
+              <IconFigma size={30} />
             </div>
           </div>
         </CardSurface>
@@ -220,8 +220,8 @@ export default async function Home({ params: { lang } }) {
       <section className="w-full mt-36 flex flex-col gap-2 place-items-center">
         <TextTitleLarge text={dict.latestProjects.title} />
         <TextBody80Medium text={dict.latestProjects.description} />
-        <div className="grid grid-cols-1 lg:grid-cols-2  mt-4 gap-4 lg:px-10 xl:px-28 2xl:px-20 place-content-center">
-          {ProjectList.slice(0, 2).map((project) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2  mt-4 gap-6 lg:px-10 xl:px-28 2xl:px-20 place-content-center">
+          {projects.slice(0, 2).map((project) => (
             <CardSurface
               classname="w-fit relative overflow-hidden"
               language={lang}
@@ -233,7 +233,7 @@ export default async function Home({ params: { lang } }) {
                 alt={project.title}
                 width={600}
                 height={600}
-                className="object-cover bottom-0"
+                className="object-cover aspect-square"
               />
 
               <div className="flex flex-row justify-between absolute bottom-0 left-0 right-0 p-4">

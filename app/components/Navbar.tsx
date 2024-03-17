@@ -18,7 +18,7 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { getDictionary } from "../[lang]/dictionaries";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import React, { useEffect, useState } from "react";
-import { IconMenu } from "./icons";
+import { IconMenu } from "./icons/common/IconMenu";
 import { Logo } from "./icons/Logo";
 
 interface routeProps {

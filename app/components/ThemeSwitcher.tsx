@@ -3,7 +3,8 @@
 import { Button } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { IconSun, IconMoon } from "./icons";
+import { IconSun } from "./icons/common/IconSun";
+import { IconMoon } from "./icons/common/IconMoon";
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);

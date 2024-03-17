@@ -92,7 +92,6 @@ export default function Home({ params: { lang } }) {
               />
               <div className="flex flex-row gap-2 place-items-center">
                 <TextTitleMedium text={item.title} className="mt-2" />
-                {item.technologies}
               </div>
               <TextBody70 text={item.subtitle} className="" />
             </div>
@@ -168,9 +167,11 @@ export default function Home({ params: { lang } }) {
                 </div>
               </ModalHeader>
               <ModalBody>
-                <div className="flex flex-row gap-2 my-2">
+                <div className="flex flex-row w-full gap-2 my-2 justify-between">
                   <TextTitleSmall text={modalData.title} />
-                  {modalData.technologies}
+                  <div className="flex flex-row gap-2 md:gap-4 rounded-full py-2 px-4 bg-black/10 dark:bg-white/10">
+                    {modalData.technologies}
+                  </div>
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
