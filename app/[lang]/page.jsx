@@ -1,16 +1,12 @@
-"use client";
 import PageContainer from "../components/container/PageContainer";
 import { getDictionary } from "./dictionaries";
 import Link from "next/link";
 import TextHeader from "../components/text/TextHeader";
-import TextLabelBold from "../components/text/TextLabelBold";
 import TextBody70 from "../components/text/TextBody70";
 import TextBody80Medium from "../components/text/TextBody80Medium";
 import TextTitleMedium from "../components/text/TextTitleMedium";
 import TextTitleLarge from "../components/text/TextTitleLarge";
-import FlippedImage from "../components/image/FlippedImage";
 import { Button } from "@nextui-org/react";
-import { IconArrowDown } from "../components/icons";
 import CardSurface from "../components/container/CardSurface";
 import { IconMultiplatform } from "../components/icons";
 import { constants } from "../../data/Constants";
@@ -43,72 +39,14 @@ import CommentContainer from "../components/container/commentContainer";
 import { IconEmail } from "../components/icons/social/IconEmail";
 import { IconPhone } from "../components/icons/social/IconPhone";
 import { IconWebsite } from "../components/icons/common/IconWebsite";
+import { Hero } from "../components/home/Hero";
 
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
-  const isRtl = lang.includes("fa");
-
-  const scrolltoSummary = () => {
-    const element = document.getElementById("summary");
-    element?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
-  };
 
   return (
     <PageContainer language={lang}>
-      <section className="md:bg-[url('/developer.svg')] dark:md:bg-[url('/developer-dark.svg')] bg-no-repeat bg-contain">
-        <div className="grid items-end justify-center md:gap-10 md:grid-cols-2">
-          <div className="md:hidden items-end justify-end relative">
-            <FlippedImage
-              alt="Hero"
-              height="400"
-              src="/hero.png"
-              width="400"
-              className="grayscale"
-              isRTL={isRtl}
-            />
-            <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
-          </div>
-
-          <div className="flex flex-col gap-4 md:gap-6 mb-10">
-            <div className="space-y-4">
-              <TextLabelBold text={dict.about.name} />
-              <TextHeader text={dict.about.title} />
-              <TextBody70 text={dict.about.shortDescription} />
-            </div>
-            <div className="flex flex-row items-start space-y-0 gap-4">
-              <Button className="flex items-center" onClick={scrolltoSummary}>
-                {dict.about.readAboutMe}
-                <div className="animate-bounce">
-                  <IconArrowDown />
-                </div>
-              </Button>
-              <Button
-                href={dict.intro.resumeUrl}
-                as={Link}
-                variant="bordered"
-                target="_blank"
-              >
-                {dict.intro.viewResume}
-              </Button>
-            </div>
-          </div>
-          <div className="hidden md:flex items-center justify-end relative">
-            <FlippedImage
-              alt="Hero"
-              height="600"
-              src="/hero.png"
-              width="600"
-              className="grayscale transition duration-300 hover:grayscale-0"
-              isRTL={isRtl}
-            />
-            <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-white dark:from-black to-transparent"></div>
-          </div>
-        </div>
-      </section>
+      <Hero lang={lang} />
 
       <section
         className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 pt-24"
