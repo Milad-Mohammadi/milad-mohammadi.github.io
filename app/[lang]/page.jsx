@@ -230,6 +230,7 @@ export default async function Home({ params: { lang } }) {
 
               <Image
                 src={project.banner}
+                alt={project.title}
                 width={600}
                 height={600}
                 className="object-cover bottom-0"

@@ -50,6 +50,7 @@ export default function Home({ params: { lang } }) {
     <PageContainer language={lang}>
       <div className="flex flex-row overflow-auto px-2 md:px-24 py-2 my-10 items-center justify-center">
         <Chip
+          key={allProjects}
           onClick={() => setSelectedCategory(allProjects)}
           radius="sm"
           variant="solid"
@@ -81,11 +82,16 @@ export default function Home({ params: { lang } }) {
         ))}
       </div>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
         {filterItemsByCategory(selectedCategory).map((item) => (
-          <div onClick={() => showDetails(item)} key={item.id}>
+          <div onClick={() => showDetails(item)} key={item.title}>
             <div className="flex flex-col p-4 border rounded-lg	border-1 border-white dark:border-black hover:border-black/20 dark:hover:border-white/20 hover:border-1 hover:bg-black/5 dark:hover:bg-white/5 w-fit cursor-pointer">
-              <Image src={item.banner} width={300} height={300} />
+              <Image
+                src={item.banner}
+                width={300}
+                height={300}
+                alt={item.title}
+              />
               <div className="flex flex-row gap-2 place-items-center">
                 <TextTitleMedium text={item.title} className="mt-2" />
                 {item.technologies}
@@ -94,7 +100,7 @@ export default function Home({ params: { lang } }) {
             </div>
           </div>
         ))}
-      </ul>
+      </div>
 
       <Modal
         isOpen={isOpen}
@@ -115,6 +121,7 @@ export default function Home({ params: { lang } }) {
               <ModalHeader>
                 <div className="relative">
                   <Image
+                    alt={modalData.title}
                     src={modalData.banner}
                     width="100%"
                     className="object-cover"

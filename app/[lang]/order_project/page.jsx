@@ -18,8 +18,16 @@ import { getDictionary } from "../dictionaries";
 import TextTitleMedium from "@/app/components/text/TextTitleMedium";
 import TextBody70 from "@/app/components/text/TextBody70";
 import TextTitleSmall from "@/app/components/text/TextTitleSmall";
-import Link from "next/link";
 import React from "react";
+
+const scrollToId = (id) => {
+  const element = document.getElementById(id);
+  element?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest",
+  });
+};
 
 export default async function OrderProject({ params: { lang } }) {
   const [error, setError] = React.useState({});
@@ -131,10 +139,10 @@ export default async function OrderProject({ params: { lang } }) {
 
   return (
     <PageContainer language={lang}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 md:p-6 pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
         <ScrollShadow
           hideScrollBar
-          className="order-last md:order-first h-fit md:h-[700px]"
+          className="order-last md:order-first h-fit md:h-[630px]"
         >
           <TextTitleMedium
             text={dict.orderProject.developmentProcess}
@@ -146,60 +154,66 @@ export default async function OrderProject({ params: { lang } }) {
             text={dict.orderProject.process}
             className="mt-4 mb-1"
           />
-          <Link href="#rules">
+          <div onClick={() => scrollToId("rules")} className="cursor-pointer">
             <TextBody70
               text={`■ ${dict.orderProject.rules}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#order">
+          </div>
+          <div onClick={() => scrollToId("order")} className="cursor-pointer">
             <TextBody70
               text={`■ ${dict.orderProject.receiveOrderProject}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#meeting">
+          </div>
+          <div onClick={() => scrollToId("meeting")} className="cursor-pointer">
             <TextBody70
               text={`■ ${dict.orderProject.meeting}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#contract">
+          </div>
+          <div
+            onClick={() => scrollToId("contract")}
+            className="cursor-pointer"
+          >
             <TextBody70
               text={`■ ${dict.orderProject.signContract}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#design">
+          </div>
+          <div onClick={() => scrollToId("design")} className="cursor-pointer">
             <TextBody70
               text={`■ ${dict.orderProject.design}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#development">
+          </div>
+          <div
+            onClick={() => scrollToId("development")}
+            className="cursor-pointer"
+          >
             <TextBody70
               text={`■ ${dict.orderProject.development}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#test">
+          </div>
+          <div onClick={() => scrollToId("test")} className="cursor-pointer">
             <TextBody70
               text={`■ ${dict.orderProject.finalTest}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#teach">
+          </div>
+          <div onClick={() => scrollToId("teach")} className="cursor-pointer">
             <TextBody70
               text={`■ ${dict.orderProject.teach}`}
               className={menuClassnames}
             />
-          </Link>
-          <Link href="#finish">
+          </div>
+          <div onClick={() => scrollToId("finish")} className="cursor-pointer">
             <TextBody70
               text={`■ ${dict.orderProject.finalizeProject}`}
               className={menuClassnames}
             />
-          </Link>
+          </div>
 
           <div id="rules" className="pt-16">
             <TextTitleSmall text={dict.orderProject.rules} className="mb-1" />
