@@ -20,6 +20,8 @@ import {
   ModalBody,
   Button,
   useDisclosure,
+  Select,
+  SelectItem,
 } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
@@ -39,6 +41,10 @@ export default function Home({ params: { lang } }) {
     }
   };
 
+  const handleCategorySelectionChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
   const showDetails = (item) => {
     setModalData(item);
     onOpen();
@@ -46,7 +52,7 @@ export default function Home({ params: { lang } }) {
 
   return (
     <PageContainer language={lang}>
-      <div className="flex flex-row overflow-auto px-2 md:px-24 py-2 my-10 items-center justify-center">
+      <div className="hidden md:flex flex-row overflow-auto px-2 md:px-24 py-2 my-10 items-center justify-center">
         <Chip
           key={allProjects}
           onClick={() => setSelectedCategory(allProjects)}
@@ -77,6 +83,35 @@ export default function Home({ params: { lang } }) {
             {category}
           </Chip>
         ))}
+      </div>
+
+      <div className="flex md:hidden my-10 w-full">
+        <Select
+          aria-label="category"
+          name="category"
+          variant="bordered"
+          classNames={{
+            value: `${lang === "fa" ? "text-start px-6" : ""}`,
+            listboxWrapper: `${lang === "fa" ? "text-start" : ""}`,
+          }}
+          listboxProps={{
+            itemClasses: {
+              base: [`${lang === "fa" ? "text-end" : "text-start"}`],
+            },
+          }}
+          defaultSelectedKeys={[selectedCategory]}
+          onChange={handleCategorySelectionChange}
+        >
+          <SelectItem key={allProjects} value={allProjects}>
+            {allProjects}
+          </SelectItem>
+
+          {uniqueCategories.map((category) => (
+            <SelectItem key={category} value={category} >
+              {category}
+            </SelectItem>
+          ))}
+        </Select>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
