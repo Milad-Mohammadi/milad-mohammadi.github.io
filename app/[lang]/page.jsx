@@ -225,6 +225,7 @@ export default async function Home({ params: { lang } }) {
             <CardSurface
               classname="w-fit relative overflow-hidden"
               language={lang}
+              key={project.title}
             >
               <div className="absolute bottom-0 left-0 z-0 w-full h-[400px] bg-gradient-to-t from-white via-white/30 dark:from-black dark:via-black/30" />
 
