@@ -32,6 +32,6 @@
     "app/components/text/TextHeader.jsx",
     "app/components/icons/index.jsx",
     "app/components/container/SocialLinkIcon.tsx"
-  ],
+, "app/components/Footer.jsx"  ],
   "exclude": ["node_modules"]
 }
