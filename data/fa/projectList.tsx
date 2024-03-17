@@ -3,6 +3,19 @@ import { ProjectType } from "../types/project";
 
 export const ProjectListFa: ProjectType[] = [
   {
+    title: "سایت شخصی من",
+    subtitle: "وب سایت شخصی میلاد محمدی",
+    technologies: [<AndroidSVG />],
+    description:
+      "من این پروژه را به عنوان وب سایت شخصی و نمونه کار خود توسعه دادم. با React، Next JS و Next UI پیاده سازی شده و امکاناتی مثل چندزبانه بودن و تم های تاریک/روشن را دارد.",
+    githubUrl: "",
+    websiteUrl: "https://vimilad.ir/fa",
+    banner: "/project/vimilad.png",
+    category: "Web",
+    date: "اسفند ۱۴۰۲",
+    client: "",
+  },
+  {
     title: "یونی‌های",
     subtitle: "یونی‌های - پلتفرم جامع تحصیلی | UniHi",
     technologies: [<AndroidSVG />],

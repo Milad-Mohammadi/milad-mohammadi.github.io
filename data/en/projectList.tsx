@@ -3,6 +3,19 @@ import { ProjectType } from "../types/project";
 
 export const ProjectList: ProjectType[] = [
   {
+    title: "This Website",
+    subtitle: "My portfolio website",
+    technologies: [<AndroidSVG />],
+    description:
+      "I started this project as my personal and portfolio website. Implemented by React, Next JS, and Next UI. including localization and Dark/Light Themes.",
+    githubUrl: "",
+    websiteUrl: "https://vimilad.ir/en",
+    banner: "/project/vimilad.png",
+    category: "Web",
+    date: "2024 March",
+    client: "",
+  },
+  {
     title: "UniHi",
     subtitle: "Comprehensive Educational Platform",
     technologies: [<AndroidSVG />],

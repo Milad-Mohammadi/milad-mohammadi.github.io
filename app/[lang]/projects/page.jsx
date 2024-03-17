@@ -18,10 +18,8 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter,
   Button,
   useDisclosure,
-  modal,
 } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
@@ -68,7 +66,6 @@ export default function Home({ params: { lang } }) {
           <Chip
             key={category}
             onClick={() => setSelectedCategory(category)}
-            active={selectedCategory === category}
             radius="sm"
             size="lg"
             className={`cursor-pointer ${
@@ -88,8 +85,9 @@ export default function Home({ params: { lang } }) {
             <div className="flex flex-col p-4 border rounded-lg	border-1 border-white dark:border-black hover:border-black/20 dark:hover:border-white/20 hover:border-1 hover:bg-black/5 dark:hover:bg-white/5 w-fit cursor-pointer">
               <Image
                 src={item.banner}
-                width={300}
-                height={300}
+                width="400"
+                height="400"
+                className="object-cover aspect-square"
                 alt={item.title}
               />
               <div className="flex flex-row gap-2 place-items-center">
