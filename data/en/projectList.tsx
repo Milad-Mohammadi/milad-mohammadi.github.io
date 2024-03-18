@@ -30,7 +30,7 @@ export const ProjectList: ProjectType[] = [
     description:
       "I Implemented this project as my personal and portfolio website. Implemented by React, Next JS, and Next UI. including localization and Dark/Light Themes.",
     githubUrl: "",
-    websiteUrl: "https://vimilad.ir/en",
+    websiteUrl: "",
     banner: "/project/vimilad.png",
     category: "Web",
     date: "2024 March",

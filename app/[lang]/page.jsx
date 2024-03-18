@@ -225,7 +225,7 @@ export default async function Home({ params: { lang } }) {
       <section className="w-full mt-36 flex flex-col gap-2 place-items-center">
         <TextTitleLarge text={dict.latestProjects.title} />
         <TextBody80Medium text={dict.latestProjects.description} />
-        <div className="grid grid-cols-1 lg:grid-cols-2  mt-4 gap-6 lg:px-10 xl:px-28 2xl:px-20 place-content-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3  mt-4 gap-6 lg:px-10 xl:px-28 2xl:px-20 place-content-center">
           {projects.slice(0, 2).map((project) => (
             <CardSurface
               classname="w-fit relative overflow-hidden"
@@ -242,44 +242,67 @@ export default async function Home({ params: { lang } }) {
                 className="object-cover aspect-square"
               />
 
-              <div className="flex flex-row justify-between absolute bottom-0 left-0 right-0 p-4">
-                <div className="flex flex-col gap-2">
-                  <TextTitleLarge text={project.title} />
-                  <TextBody70 text={project.subtitle} />
-                  <div className="flex flex-row gap-4">
-                    {project.technologies}
+              <div className="flex flex-col justify-between absolute bottom-0 left-0 right-0 p-4">
+                <div className="flex flex-row gap-2">
+                  <div className="flex flex-col w-full">
+                    <TextTitleLarge text={project.title} />
+                    <TextBody70 text={project.subtitle} />
+                  </div>
+
+                  <div className="flex flex-row">
+                    {project.websiteUrl !== "" && (
+                      <Button
+                        as={Link}
+                        href={project.websiteUrl}
+                        size="lg"
+                        target="_blank"
+                        isIconOnly
+                        className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
+                      >
+                        <IconWebsite size={36} />
+                      </Button>
+                    )}
+                    {project.githubUrl !== "" && (
+                      <Button
+                        as={Link}
+                        href={project.githubUrl}
+                        size="lg"
+                        target="_blank"
+                        isIconOnly
+                        className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
+                      >
+                        <LogoGithub size={36} />
+                      </Button>
+                    )}
                   </div>
                 </div>
 
-                <div className="flex flex-row">
-                  {project.websiteUrl !== "" && (
-                    <Button
-                      as={Link}
-                      href={project.websiteUrl}
-                      size="lg"
-                      target="_blank"
-                      isIconOnly
-                      className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
-                    >
-                      <IconWebsite size={36} />
-                    </Button>
-                  )}
-                  {project.githubUrl !== "" && (
-                    <Button
-                      as={Link}
-                      href={project.githubUrl}
-                      size="lg"
-                      target="_blank"
-                      isIconOnly
-                      className="rounded-full shadow-lg ring ring-4 ring-onWhite dark:ring-onBlack"
-                    >
-                      <LogoGithub size={36} />
-                    </Button>
-                  )}
+                <div className="flex flex-row gap-4 mt-2">
+                  {project.technologies}
                 </div>
               </div>
             </CardSurface>
           ))}
+
+          <CardSurface
+            classname="w-fit relative overflow-hidden"
+            language={lang}
+            key={dict.intro.viewAll}
+          >
+            <Link href={`${lang}/projects`}>
+              <Image
+                src="/pattern5.svg"
+                alt={dict.intro.viewAll}
+                width={600}
+                height={600}
+                className="object-cover aspect-square opacity-30 dark:opacity-100"
+              />
+
+              <div className="animate-pulse flex flex-row absolute bottom-0 left-0 right-0 p-4 h-full place-items-center justify-center text-3xl font-bold md:text-4xl lg:text-5xl">
+                {dict.intro.viewAll} {" >"}
+              </div>
+            </Link>
+          </CardSurface>
         </div>
       </section>
 

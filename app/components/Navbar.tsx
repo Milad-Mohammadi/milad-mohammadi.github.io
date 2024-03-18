@@ -66,7 +66,11 @@ export const NavbarSection = () => {
   }, [language]);
 
   return (
-    <Navbar isBlurred className="dark:bg-black" classNames={{ menu: "h-fit" }}>
+    <Navbar
+      isBlurred
+      className="dark:bg-black"
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -106,11 +110,11 @@ export const NavbarSection = () => {
         {routes.map((section: routeProps) => (
           <NavbarMenuItem key={section.url}>
             <Link
-              onClick={() => setIsMenuOpen(false)}
               className={`flex items-center justify-center rounded ${
-                path === section.url ? "font-black border-x-1" : ""
+                path === section.url ? "font-black border-x-2" : ""
               }`}
               href={section.url}
+              onClick={() => setIsMenuOpen(false)}
             >
               {section.label}
             </Link>

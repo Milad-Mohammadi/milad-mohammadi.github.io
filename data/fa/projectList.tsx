@@ -30,7 +30,7 @@ export const ProjectListFa: ProjectType[] = [
     description:
       "من این پروژه را به عنوان وب سایت شخصی و نمونه کار توسعه دادم. با React، Next JS و Next UI پیاده‌سازی شده و امکاناتی مثل چندزبانه بودن و تم های تاریک/روشن را دارد.",
     githubUrl: "",
-    websiteUrl: "https://vimilad.ir/fa",
+    websiteUrl: "",
     banner: "/project/vimilad.png",
     category: "سایت",
     date: "اسفند ۱۴۰۲",
