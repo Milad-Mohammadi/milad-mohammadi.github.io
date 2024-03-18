@@ -22,7 +22,6 @@ import { IconPhone } from "../components/icons/social/IconPhone";
 import { IconWebsite } from "../components/icons/common/IconWebsite";
 import { Hero } from "../components/home/Hero";
 import { IconAndroid } from "../components/icons/technologies/IconAndroid";
-import { IconMultiplatform } from "../components/icons/common/IconMultiplatform";
 import { IconKotlin } from "../components/icons/technologies/IconKotlin";
 import { IconJava } from "../components/icons/technologies/IconJava";
 import { IconJetpackCompose } from "../components/icons/technologies/IconJetpackCompose";
@@ -62,7 +61,13 @@ export default async function Home({ params: { lang } }) {
               <TextBody70 text={`• ${dict.intro.tvDev}`} />
               <TextBody70 text={`• ${dict.intro.watchDev}`} />
             </div>
-            <IconMultiplatform className="hover:drop-shadow-xl hidden sm:flex" />
+            <Image
+              src="/multiplatform.svg"
+              width={500}
+              height={500}
+              alt="Multiplatform"
+              className="hover:drop-shadow-xl hidden sm:flex"
+            />
           </div>
         </CardSurface>
         <CardSurface

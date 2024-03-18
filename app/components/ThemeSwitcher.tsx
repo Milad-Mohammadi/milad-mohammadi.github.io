@@ -17,14 +17,27 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <div className="flex space-x-4">
+    <div>
       <Button
         variant="faded"
         radius="full"
         isIconOnly
         onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
+        className="hidden md:flex"
+        size="md"
       >
-        {theme == "dark" ? <IconSun /> : <IconMoon />}
+        {theme == "dark" ? <IconSun size={24} /> : <IconMoon size={24} />}
+      </Button>
+
+      <Button
+        variant="faded"
+        radius="full"
+        isIconOnly
+        onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
+        className="flex md:hidden"
+        size="sm"
+      >
+        {theme == "dark" ? <IconSun size={16} /> : <IconMoon size={16} />}
       </Button>
     </div>
   );

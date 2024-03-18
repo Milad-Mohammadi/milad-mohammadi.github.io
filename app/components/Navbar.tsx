@@ -1,17 +1,13 @@
 "use client";
 import Link from "next/link";
 import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownTrigger,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  DropdownMenu,
+  NavbarMenuToggle,
 } from "@nextui-org/react";
 import { usePathname, redirect, RedirectType } from "next/navigation";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -35,6 +31,7 @@ export const NavbarSection = () => {
     : `/${language}`;
   const [routes, setRoutes] = useState<routeProps[]>([]);
   const direction = language === "en" ? "ltr" : "rtl";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchDictionaries = async () => {
@@ -69,37 +66,16 @@ export const NavbarSection = () => {
   }, [language]);
 
   return (
-    <Navbar isBlurred className="dark:bg-black">
+    <Navbar isBlurred className="dark:bg-black" classNames={{ menu: "h-fit" }}>
       <NavbarContent>
-        <Dropdown backdrop="blur">
-          <DropdownTrigger>
-            <Button
-              isIconOnly
-              variant="light"
-              className="visible md:invisible p-0"
-            >
-              <IconMenu />
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu variant="faded" aria-label="Menu">
-            {routes.map((section: routeProps) => (
-              <DropdownItem key={section.url}>
-                <Link
-                  className={`flex w-full h-full items-center justify-center rounded ${
-                    path === section.url ? "font-black border-x-1" : ""
-                  }`}
-                  href={section.url}
-                >
-                  {section.label}
-                </Link>
-              </DropdownItem>
-            ))}
-          </DropdownMenu>
-        </Dropdown>
-
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="flex md:hidden"
+        />
         <NavbarBrand>
           <Link href={`/${language}`}>
-            <Logo size={46} />
+            <Logo size={46} classname="hidden md:flex" />
+            <Logo size={24} classname="flex md:hidden" />
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -130,11 +106,10 @@ export const NavbarSection = () => {
         {routes.map((section: routeProps) => (
           <NavbarMenuItem key={section.url}>
             <Link
-              className={
-                path === section.url
-                  ? "w-full px-3 py-1.5 rounded-lg bg-red-200"
-                  : "w-full px-3 py-1.5 rounded-lg"
-              }
+              onClick={() => setIsMenuOpen(false)}
+              className={`flex items-center justify-center rounded ${
+                path === section.url ? "font-black border-x-1" : ""
+              }`}
               href={section.url}
             >
               {section.label}
