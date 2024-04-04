@@ -52,7 +52,7 @@ export const FooterSection = () => {
               className=""
             />
 
-            <Link href={`${language}/`}>
+            <Link href={`/${language}`}>
               <TextBody70
                 text={dict ? dict.about.name : ""}
                 className="font-bold hover:text-primary transition"

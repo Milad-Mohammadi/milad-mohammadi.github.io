@@ -375,6 +375,14 @@ export default async function Home({ params: { lang } }) {
           />
 
           <CommentContainer
+            image="/avatar/mariam_mikautadze.jpeg"
+            name={dict.comments.mariamMikautadze}
+            title={dict.comments.mariamMikautadzeTitle}
+            comment={dict.comments.mariamMikautadzeComment}
+            language={lang}
+          />
+
+          <CommentContainer
             image="/avatar/yaser_khalfi_nejad.jpeg"
             name={dict.comments.yaserKhalfiNejad}
             title={dict.comments.yaserKhalfiNejadTitle}

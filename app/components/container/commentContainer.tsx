@@ -23,7 +23,7 @@ const CommentContainer: React.FC<CommentContainerProps> = ({
       language={language}
     >
       <User name={name} description={title} avatarProps={{ src: image }} />
-      <TextBody70 text={comment} className="mt-2 text-justify" />
+      <TextBody70 text={comment} className="mt-2 text-justify md:text-start" />
     </CardSurface>
   );
 };
