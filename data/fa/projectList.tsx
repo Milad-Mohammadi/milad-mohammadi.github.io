@@ -15,6 +15,22 @@ import { ProjectType } from "../types/project";
 
 export const ProjectListFa: ProjectType[] = [
   {
+    title: "تاکسی اینترنتی FTF",
+    subtitle: "اپلیکیشن راننده و مسافر تاکسی اینترنتی",
+    technologies: [
+      <IconAndroid />,
+      <IconKotlin />,
+    ],
+    description:
+      "در پروژه تاکسی اینترنتی FTF که برای شرکت Fair Trade Fares LTD انجام شد، دو اپلیکیشن راننده و مسافر به صورت کامل توسط من پیاده‌سازی شد. چالش‌هایی که در این پروژه با آن‌ها مواجه شدم، اطمینان از کارکرد کامل اپلیکیشن در بک‌گراند، مصرف بهینه باتری و روان بودن رابط کاربری آن بود. این دو اپلیکیشن طبق آخرین استانداردهای جهانی طراحی و پیاده‌سازی شدند و از لحاظ امکانات و کیفیت پیاده‌سازی قابل مقایسه و رقابت با اپلیکیشن‌هایی همچون Uber و Lyft می‌باشند. برخی از امکانات دو اپلیکیشن:\n- پیاده‌سازی پرداخت Stripe\n- پیاده‌سازی پرداخت Google Pay\n- امکان بارگذاری مدارک راننده به صورت عکس و یا PDF و تفکیک صفحات مدارک در فایل PDF\n- سرویس ارسال موقعیت مکانی راننده در پس‌زمینه گوشی\n- رسم مسیرها به صورت شخصی‌سازی شده روی نقشه\n- مسیریابی و نمایش محدوده، ورودی‌ها و خروجی‌ها برای مکان‌های خاص مثل فرودگاه‌ها\n- شخصی‌سازی نقشه در توسعه و قابلیت استفاده از یکی از نقشه‌های Google Map و MapBox Map\n",
+    githubUrl: "",
+    websiteUrl: "https://ftftaxi.com/",
+    banner: "/project/ftf.png",
+    category: "سایت",
+    date: "۱۴۰۲",
+    client: "Fair Trade Fares LTD",
+  },
+  {
     title: "سایت شخصی من",
     subtitle: "وب سایت شخصی میلاد محمدی",
     technologies: [
@@ -32,7 +48,7 @@ export const ProjectListFa: ProjectType[] = [
     githubUrl: "",
     websiteUrl: "",
     banner: "/project/vimilad.png",
-    category: "سایت",
+    category: "اندروید",
     date: "اسفند ۱۴۰۲",
     client: "",
   },
