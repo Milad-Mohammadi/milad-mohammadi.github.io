@@ -25,7 +25,7 @@ export const ProjectList: ProjectType[] = [
       "In the FTF online taxi project that was done for Fair Trade Fares LTD, two driver and passenger applications were fully implemented by me. The challenges that I faced in this project were ensuring the full functionality of the application in the background, optimal battery consumption and the smoothness of its user interface. These two applications were designed and implemented according to the latest global standards, and in terms of features and implementation quality, they are comparable and competitive with applications such as Uber and Lyft. Some features of the two applications:\n- Implementation of Stripe payment\n- Implementation of Google Pay payment\n- The possibility of uploading the driver's documents as a photo or PDF and separating the pages of the documents in the PDF file\n- The service of sending the driver's location in the background of the phone\n- Draw personalized routes on the map\n- Routing and display of range, entrances and exits for specific locations such as airports\n- Personalization of the map in development and the ability to use one of the Google Map and MapBox Map",
     githubUrl: "",
     websiteUrl: "https://ftftaxi.com/",
-    banner: "/project/ftf.png",
+    banner: "/project/ftf.jpg",
     category: "Android",
     date: "2023",
     client: "Fair Trade Fares LTD",
