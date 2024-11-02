@@ -5,19 +5,12 @@ import "../globals.css";
 import { NavbarSection } from "../components/Navbar";
 import { FooterSection } from "../components/Footer";
 import { getDictionary } from "./dictionaries";
-import { constants } from "../../data/Constants";
 
 const vazir = Vazirmatn({ subsets: ["latin", "arabic", "latin-ext"] });
 
 type Props = {
   params: { lang: string };
 };
-
-export async function generateStaticParams() {
-  return constants.locales.map((locale) => ({
-    locale,
-  }));
-}
 
 export async function generateMetadata(
   { params }: Props,

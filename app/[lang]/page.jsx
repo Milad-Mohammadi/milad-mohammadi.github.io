@@ -39,6 +39,12 @@ import { IconMySql } from "../components/icons/technologies/IconMySql";
 import { IconFigma } from "../components/icons/technologies/IconFigma";
 import { ProjectListFa } from "@/data/fa/projectList";
 
+export async function generateStaticParams() {
+  return constants.locales.map((locale) => ({
+    locale,
+  }));
+}
+
 export default async function Home({ params: { lang } }) {
   const dict = await getDictionary(lang);
   const projects = lang == "en" ? ProjectList : ProjectListFa;
