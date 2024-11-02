@@ -1,6 +1,3 @@
- 
-Copy
-// Projects.js (your original page component)
 import { constants } from "../../../data/Constants";
 import PageContainer from "@/app/components/container/PageContainer";
 import ProjectsClient from "./ProjectsClient"; // Adjust the path as necessary
