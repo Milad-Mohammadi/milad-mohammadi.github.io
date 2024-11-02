@@ -1,13 +1,4 @@
 import { constants } from "../../../data/Constants";
-
-export async function generateStaticParams() {
-  return constants.locales.map((locale) => ({
-    lang: locale
-  }));
-}
-
-"use client";
-
 import PageContainer from "@/app/components/container/PageContainer";
 import { IconClose } from "@/app/components/icons/common/IconClose";
 import { IconDate } from "@/app/components/icons/common/IconDate";
@@ -33,6 +24,13 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
+
+
+export async function generateStaticParams() {
+  return constants.locales.map((locale) => ({
+    lang: locale
+  }));
+}
 
 export default function Home({ params: { lang } }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
