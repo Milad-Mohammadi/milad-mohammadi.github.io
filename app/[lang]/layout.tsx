@@ -12,6 +12,14 @@ type Props = {
   params: { lang: string };
 };
 
+const LOCALES = ["en", "fa"];
+
+export async function generateStaticParams() {
+  return LOCALES.map((locale) => ({
+    locale,
+  }));
+}
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
