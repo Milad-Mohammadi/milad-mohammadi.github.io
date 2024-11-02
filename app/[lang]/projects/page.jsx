@@ -11,6 +11,7 @@ import TextTitleMedium from "@/app/components/text/TextTitleMedium";
 import TextTitleSmall from "@/app/components/text/TextTitleSmall";
 import { ProjectList } from "@/data/en/projectList";
 import { ProjectListFa } from "@/data/fa/projectList";
+import { constants } from "../../../data/Constants";
 import {
   Chip,
   Image,
@@ -25,6 +26,12 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
+
+export async function generateStaticParams() {
+  return constants.locales.map((locale) => ({
+    locale,
+  }));
+}
 
 export default function Home({ params: { lang } }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
