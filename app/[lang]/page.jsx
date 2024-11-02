@@ -41,7 +41,7 @@ import { ProjectListFa } from "@/data/fa/projectList";
 
 export async function generateStaticParams() {
   return constants.locales.map((locale) => ({
-    locale,
+    lang: locale
   }));
 }
 

@@ -3,7 +3,7 @@ import { constants } from "../../../data/Constants";
 
 export async function generateStaticParams() {
   return constants.locales.map((locale) => ({
-    locale,
+    lang: locale
   }));
 }
 
