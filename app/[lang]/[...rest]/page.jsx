@@ -4,7 +4,7 @@ import { getDictionary } from "../dictionaries";
 import TextTitleLarge from "@/app/components/text/TextTitleLarge";
 import TextTitleSmall from "@/app/components/text/TextTitleSmall";
 import { Button } from "@nextui-org/react";
-import { constants } from "../../data/Constants";
+import { constants } from "../../../data/Constants";
 
 export async function generateStaticParams() {
   return constants.locales.map((locale) => ({
