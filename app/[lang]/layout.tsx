@@ -5,6 +5,7 @@ import "../globals.css";
 import { NavbarSection } from "../components/Navbar";
 import { FooterSection } from "../components/Footer";
 import { getDictionary } from "./dictionaries";
+import { constants } from "../../data/Constants";
 
 const vazir = Vazirmatn({ subsets: ["latin", "arabic", "latin-ext"] });
 
@@ -12,10 +13,8 @@ type Props = {
   params: { lang: string };
 };
 
-const LOCALES = ["en", "fa"];
-
 export async function generateStaticParams() {
-  return LOCALES.map((locale) => ({
+  return constants.locales.map((locale) => ({
     locale,
   }));
 }
