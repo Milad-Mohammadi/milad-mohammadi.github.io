@@ -7,5 +7,5 @@ export const constants = {
   instagram: "https://instagram.com/vimilad",
   x: "https://x.com/vimiladi",
   telegram: "https://t.me/vimilad",
-  locals: ["en", "fa"]
+  locales: ["en", "fa"]
 };
