@@ -1,3 +1,11 @@
+import { constants } from "../../../data/Constants";
+
+export async function generateStaticParams() {
+  return constants.locales.map((locale) => ({
+    lang: locale
+  }));
+}
+
 "use client";
 
 import PageContainer from "@/app/components/container/PageContainer";
